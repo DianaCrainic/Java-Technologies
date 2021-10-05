@@ -7,14 +7,18 @@
 <body>
 <h1>Servlet</h1>
 <form method="POST" action="query">
-    Key: <input type="text" id="key" name="key" aria-label="Key..."><br>
-    Value: <input type="number" min="0" id="value" name="value" aria-label="Value..." value=0><br>
-    <label>
-        <input type="checkbox" name="mock" checked="checked">
-    </label>Mock<br>
-    <label>
-        <input type="checkbox" name="sync" checked="checked">
-    </label>Sync<br>
+    Key: <input type="text" id="key" name="key" aria-label="Key..."><br><br>
+    Value: <input type="number" min="0" id="value" name="value" aria-label="Value..." value=0><br><br>
+    <label for="mock">Mock:</label>
+    <select name="mock" id="mock">
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select><br><br>
+    <label for="sync">Sync:</label>
+    <select name="sync" id="sync">
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select>
     <input type="submit" value="Submit">
 </form>
 

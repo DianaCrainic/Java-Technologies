@@ -176,11 +176,11 @@ public class MyServlet extends HttpServlet {
             sync = Boolean.parseBoolean(stringSync);
         }
 
-        resp.setContentType("text/html");
+//        resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
 
         if (mock) {
-            writer.println("Everything works!");
+            writer.println("Successful!\nMock is true! ");
         } else {
             Date date = new Date();
             Timestamp timestamp = new Timestamp(date.getTime());
@@ -202,7 +202,6 @@ public class MyServlet extends HttpServlet {
                     fileContent = getHtmlPage();
                 }
                 writer.println(fileContent);
-                writer.println("Mock is false, sync is also false");
             }
         }
         writeServerLog(req);
