@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.Locale;
 import java.util.Map;
-
 
 @WebServlet("/query")
 public class MyServlet extends HttpServlet {
@@ -47,12 +48,29 @@ public class MyServlet extends HttpServlet {
             fin = new FileInputStream(file);
             int ch;
             while ((ch = fin.read()) != -1) {
-                if(String.valueOf((char)ch).equals("\n")){
+                if (String.valueOf((char) ch).equals("\n")) {
                     fileContent.append("</li>").append("<li>");
                 }
-                fileContent.append((char)ch);
+                fileContent.append((char) ch);
             }
             fileContent.append("</ul>");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileContent;
+    }
+
+    private StringBuilder syncGetTextPage() {
+        FileInputStream fin;
+        File file;
+        StringBuilder fileContent = new StringBuilder("Content of file: \n");
+        try {
+            file = new File(FILE_PATH + FILENAME);
+            fin = new FileInputStream(file);
+            int ch;
+            while ((ch = fin.read()) != -1) {
+                fileContent.append((char) ch);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,7 +92,7 @@ public class MyServlet extends HttpServlet {
         }
     }
 
-    private String getHtmlPage() {
+    private StringBuilder getHtmlPage() {
         StringBuilder fileContent = new StringBuilder("<h1>Content of file:</h1><ul>");
         BufferedReader bufferedReader;
         try {
@@ -89,34 +107,56 @@ public class MyServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return fileContent.toString();
+        return fileContent;
     }
 
-    private static String getClientIp(HttpServletRequest request) {
-        String remoteAddress = "";
-        if (request != null) {
-            remoteAddress = request.getHeader("X-FORWARDED-FOR");
-            if (remoteAddress == null || "".equals(remoteAddress)) {
-                remoteAddress = request.getRemoteAddr();
+    private StringBuilder getTextPage() {
+        StringBuilder fileContent = new StringBuilder("Content of file:\n");
+        BufferedReader bufferedReader;
+        try {
+            bufferedReader = new BufferedReader(new FileReader(FILE_PATH + FILENAME));
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                fileContent.append(line).append("\n");
+                line = bufferedReader.readLine();
             }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return remoteAddress;
+        return fileContent;
     }
 
     private void writeServerLog(HttpServletRequest req) {
         String requestInformation = "";
         requestInformation += "\nthe HTTP method used: " + req.getMethod() + '\n';
-        requestInformation += "the IP-address of the client:" + getClientIp(req) + '\n';
+        requestInformation += "the IP-address of the client:" + req.getRemoteAddr() + '\n';
         requestInformation += "the user-agent: " + req.getHeader("User-Agent") + '\n';
-        requestInformation += "the client language(s): " + System.getProperty("user.language") + '\n';
+        StringBuilder languages = getLanguages(req);
+        requestInformation += "the client language(s): " + languages + '\n';
         requestInformation += "the parameters of the request: ";
+        StringBuilder parameters = getParameters(req);
+        requestInformation += parameters;
+        log(requestInformation);
+    }
+
+    private StringBuilder getParameters(HttpServletRequest req) {
+        StringBuilder parametersOfRequest = new StringBuilder();
         Map<String, String[]> params = req.getParameterMap();
         for (String parameter : params.keySet()) {
-            requestInformation += parameter + " | ";
+            parametersOfRequest.append(parameter).append(" | ");
         }
-        // TODO cand am false pe un parametru, nu il ia in considerare in lista de parametri
+        return parametersOfRequest;
+    }
 
-        log(requestInformation);
+    private StringBuilder getLanguages(HttpServletRequest req) {
+        StringBuilder clientLanguages = new StringBuilder();
+        Enumeration<Locale> languages = req.getLocales();
+        while (languages.hasMoreElements()) {
+            Locale language = languages.nextElement();
+            clientLanguages.append(language).append(" | ");
+        }
+        return clientLanguages;
     }
 
     @Override
@@ -127,8 +167,14 @@ public class MyServlet extends HttpServlet {
         String stringSync = req.getParameter("sync");
 
         int value = Integer.parseInt(stringValue);
-        boolean mock = stringMock != null;
-        boolean sync = stringSync != null;
+        boolean mock = false;
+        if (stringMock != null) {
+            mock = Boolean.parseBoolean(stringMock);
+        }
+        boolean sync = false;
+        if (stringSync != null) {
+            sync = Boolean.parseBoolean(stringSync);
+        }
 
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
@@ -140,12 +186,22 @@ public class MyServlet extends HttpServlet {
             Timestamp timestamp = new Timestamp(date.getTime());
             if (sync) {
                 syncWriteToFile(key, value, timestamp);
-                StringBuilder syncHtmlFileContent = syncGetHtmlPage();
-                writer.println(syncHtmlFileContent);
+                StringBuilder syncFileContent;
+                if (req.getHeader("User-Agent").equals("python-requests/2.26.0")) {
+                    syncFileContent = syncGetTextPage();
+                } else {
+                    syncFileContent = syncGetHtmlPage();
+                }
+                writer.println(syncFileContent);
             } else {
                 writeToFile(key, value, timestamp);
-                String htmlFileContent = getHtmlPage();
-                writer.println(htmlFileContent);
+                StringBuilder fileContent;
+                if (req.getHeader("User-Agent").equals("python-requests/2.26.0")) {
+                    fileContent = getTextPage();
+                } else {
+                    fileContent = getHtmlPage();
+                }
+                writer.println(fileContent);
                 writer.println("Mock is false, sync is also false");
             }
         }
