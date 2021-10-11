@@ -16,6 +16,7 @@
 <form action="controller">
     <label> Category: </label>
     <select name="category" id="category">
+        <option value=""></option>
         <%
             for (Device.CategoryType categoryType : Device.CategoryType.values()) {
         %>

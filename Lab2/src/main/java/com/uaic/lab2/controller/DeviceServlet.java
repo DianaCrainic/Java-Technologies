@@ -2,6 +2,8 @@ package com.uaic.lab2.controller;
 
 import com.uaic.lab2.model.Device;
 import com.uaic.lab2.model.DeviceFactory;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,19 +23,28 @@ public class DeviceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String category = req.getParameter("category");
+        ServletContext servletContext = this.getServletContext();
+
         Device.CategoryType categoryType = null;
+        String defaultCategory = null;
         if (category != null) {
             if (category.equals("INPUT")) {
                 categoryType = Device.CategoryType.INPUT;
             } else {
-                categoryType = Device.CategoryType.OUTPUT;
+                if (category.equals("OUTPUT")) {
+                    categoryType = Device.CategoryType.OUTPUT;
+                }
             }
+        } else {
+            defaultCategory = servletContext.getInitParameter("default_category");
+            categoryType = Device.CategoryType.valueOf(defaultCategory);
         }
+
         String key = req.getParameter("key");
         String value = req.getParameter("value");
 
         String nextPage;
-        if (categoryType != null || key != null && !key.isEmpty() || value != null && !value.isEmpty()) {
+        if (categoryType != null && key != null && !key.isEmpty() && value != null && !value.isEmpty()) {
             nextPage = "/result.jsp";
             Device device = new Device(categoryType, key, value);
             deviceFactory.addDevice(device);
