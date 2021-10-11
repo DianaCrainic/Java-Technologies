@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.uaic.lab2.model.Device" %><%--
   Created by IntelliJ IDEA.
   User: diana
   Date: 07-Oct-21
@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.uaic.lab2.model.Device" %>
+
 <html>
 <head>
     <title>Lab2</title>
@@ -13,7 +15,15 @@
 <body>
 <form action="controller">
     <label> Category: </label>
-    <input type="text" name="category"/><br/><br/>
+    <select name="category" id="category">
+        <%
+            for (Device.CategoryType categoryType : Device.CategoryType.values()) {
+        %>
+        <option value="<%=categoryType%>">
+            <%=categoryType%>
+        </option>
+        <%}%>
+    </select><br><br>
 
     <label>Key: </label>
     <input type="text" name="key"/><br/><br/>

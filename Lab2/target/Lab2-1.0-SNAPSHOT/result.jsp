@@ -17,6 +17,8 @@
 <%--<h2>Key: ${param['key']}</h2>--%>
 <%--<h2>Value: ${param['value']}</h2>--%>
 
+<h1>The devices:</h1>
+
 <% List<Device> devices = (List<Device>) request.getAttribute("devices");%>
 <table border="1">
     <thead>

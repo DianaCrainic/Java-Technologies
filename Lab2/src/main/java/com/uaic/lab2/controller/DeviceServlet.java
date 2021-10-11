@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "DeviceServlet", urlPatterns = {"/"})
 public class DeviceServlet extends HttpServlet {
-    
+
     private final DeviceFactory deviceFactory;
 
     public DeviceServlet() {
@@ -21,18 +21,24 @@ public class DeviceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String category = req.getParameter("category");
+        Device.CategoryType categoryType = null;
+        if (category != null) {
+            if (category.equals("INPUT")) {
+                categoryType = Device.CategoryType.INPUT;
+            } else {
+                categoryType = Device.CategoryType.OUTPUT;
+            }
+        }
         String key = req.getParameter("key");
         String value = req.getParameter("value");
 
         String nextPage;
-        if((category != null && !category.isEmpty()) || (key != null && !key.isEmpty()) ||
-                (value != null && !value.isEmpty())){
+        if (categoryType != null || key != null && !key.isEmpty() || value != null && !value.isEmpty()) {
             nextPage = "/result.jsp";
-            Device device = new Device(category, key, value);
+            Device device = new Device(categoryType, key, value);
             deviceFactory.addDevice(device);
             req.setAttribute("devices", this.deviceFactory.getDevices());
-        }
-        else{
+        } else {
             nextPage = "/input.jsp";
         }
         getServletContext().getRequestDispatcher(nextPage).forward(req, resp);

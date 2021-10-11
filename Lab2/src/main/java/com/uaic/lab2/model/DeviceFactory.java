@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DeviceFactory {
-    private List<Device> devices;
+    private final List<Device> devices;
 
     public DeviceFactory() {
         this.devices = new ArrayList<>(Arrays.asList(
-                new Device("input", "keyboards", "100"),
-                new Device("input", "mouse", "101"),
-                new Device("output", "monitor", "200")));
+                new Device(Device.CategoryType.INPUT, "keyboard", "mechanical keyboard"),
+                new Device(Device.CategoryType.INPUT, "mouse", "silence mouse"),
+                new Device(Device.CategoryType.OUTPUT, "monitor", "HD monitor")));
     }
 
     public List<Device> getDevices() {
@@ -21,11 +21,4 @@ public class DeviceFactory {
     public void addDevice(Device device) {
         devices.add(device);
     }
-
-    //    public List<Device> getDevices() {
-//        return Arrays.asList(new Device("input", "keyboards", 100),
-//                new Device("input", "mouse", 101),
-//                new Device("output", "monitor", 200));
-//    }
-
 }

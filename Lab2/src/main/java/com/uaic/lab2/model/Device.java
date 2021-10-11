@@ -1,21 +1,25 @@
 package com.uaic.lab2.model;
 
 public class Device {
-    private String category;
+
+    public enum CategoryType {
+        INPUT, OUTPUT
+    }
+    private CategoryType category;
     private String key;
     private String value;
 
-    public Device(String category, String key, String value) {
+    public Device(CategoryType category, String key, String value) {
         this.category = category;
         this.key = key;
         this.value = value;
     }
 
-    public String getCategory() {
+    public CategoryType getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(CategoryType category) {
         this.category = category;
     }
 
