@@ -1,7 +1,4 @@
-# Java Technologies Laboratories
-## Author: Crainic Diana-Isabela, 1st Year Master Software Engineering
-
-[Java Servlet Technology Lab1](https://profs.info.uaic.ro/~acf/tj/labs/lab_01.html)
+# [Java Servlet Technology Lab1](https://profs.info.uaic.ro/~acf/tj/labs/lab_01.html)
 
 Tasks Done:
 - Create a servlet that:
