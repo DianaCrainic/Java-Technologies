@@ -9,9 +9,9 @@ public class DeviceFactory {
 
     public DeviceFactory() {
         this.devices = new ArrayList<>(Arrays.asList(
-                new Device(Device.CategoryType.INPUT, "keyboard", "mechanical keyboard"),
-                new Device(Device.CategoryType.INPUT, "mouse", "silence mouse"),
-                new Device(Device.CategoryType.OUTPUT, "monitor", "HD monitor")));
+                new Device(CategoryType.INPUT, "keyboard", "mechanical keyboard"),
+                new Device(CategoryType.INPUT, "mouse", "silence mouse"),
+                new Device(CategoryType.OUTPUT, "monitor", "HD monitor")));
     }
 
     public List<Device> getDevices() {

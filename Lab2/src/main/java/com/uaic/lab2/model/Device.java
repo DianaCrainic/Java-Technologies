@@ -2,9 +2,6 @@ package com.uaic.lab2.model;
 
 public class Device {
 
-    public enum CategoryType {
-        INPUT, OUTPUT
-    }
     private CategoryType category;
     private String key;
     private String value;

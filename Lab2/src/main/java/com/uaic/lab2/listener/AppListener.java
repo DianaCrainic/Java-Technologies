@@ -1,15 +1,17 @@
 package com.uaic.lab2.listener;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 @WebListener()
 public class AppListener implements ServletContextListener {
-    private static long startupTime = 0L;
+    private static final String DEFAULT_CATEGORY = "default_category";
 
-    /* Application Startup Event */
     public void contextInitialized(ServletContextEvent ce) {
-        startupTime = System.currentTimeMillis();
+        ServletContext servletContext = ce.getServletContext();
+        String defaultCategory = servletContext.getInitParameter(DEFAULT_CATEGORY);
+        servletContext.setAttribute(DEFAULT_CATEGORY, defaultCategory);
     }
 }

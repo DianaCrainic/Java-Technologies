@@ -21,7 +21,7 @@ public class ResponseDecorator implements Filter {
     }
 
     private String getFooter() {
-        return "<footer>This is the Footer</footer></br>";
+        return "</br></br><footer>This is the Footer</footer></br>";
     }
 
     private String getHeader() {

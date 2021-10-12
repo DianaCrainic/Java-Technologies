@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.uaic.lab2.model.Device" %>
+<%@ page import="com.uaic.lab2.model.CategoryType" %>
 
 <html>
 <head>
@@ -18,7 +19,7 @@
     <select name="category" id="category">
         <option value=""></option>
         <%
-            for (Device.CategoryType categoryType : Device.CategoryType.values()) {
+            for (CategoryType categoryType : CategoryType.values()) {
         %>
         <option value="<%=categoryType%>">
             <%=categoryType%>
