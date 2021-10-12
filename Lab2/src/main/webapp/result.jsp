@@ -10,32 +10,36 @@
 <html>
 <head>
     <title>Lab2</title>
+    <style>
+        <%@ include file="/style.css" %>
+    </style>
 </head>
 <body>
-<h1>The devices:</h1>
 
-<% List<Device> devices = (List<Device>) request.getAttribute("devices");%>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Category</th>
-        <th>Key</th>
-        <th>Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for (Device device : devices) {%>
-    <tr>
-        <td><%=device.getCategory()%>
-        </td>
-        <td><%=device.getKey()%>
-        </td>
-        <td><%=device.getValue()%>
-        </td>
-    </tr>
-    <%} %>
-    </tbody>
-
-</table>
+<div>
+    <h2>Records:</h2>
+    <% List<Device> devices = (List<Device>) request.getAttribute("devices");%>
+    <table id="devices">
+        <thead>
+        <tr>
+            <th>Category</th>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (Device device : devices) {%>
+        <tr>
+            <td><%=device.getCategory()%>
+            </td>
+            <td><%=device.getKey()%>
+            </td>
+            <td><%=device.getValue()%>
+            </td>
+        </tr>
+        <%} %>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

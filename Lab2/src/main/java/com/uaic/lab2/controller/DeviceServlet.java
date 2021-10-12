@@ -3,10 +3,9 @@ package com.uaic.lab2.controller;
 import com.uaic.lab2.model.CategoryType;
 import com.uaic.lab2.model.Device;
 import com.uaic.lab2.model.DeviceFactory;
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,6 +35,8 @@ public class DeviceServlet extends HttpServlet {
             Device device = new Device(categoryType, key, value);
             deviceFactory.addDevice(device);
             req.setAttribute("devices", this.deviceFactory.getDevices());
+            Cookie selectedCategoryCookie = getSelectedCategoryCookie(categoryType);
+            resp.addCookie(selectedCategoryCookie);
         } else {
             nextPage = INPUT_PAGE;
         }
@@ -61,5 +62,11 @@ public class DeviceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
+    }
+
+    private Cookie getSelectedCategoryCookie(CategoryType categoryType) {
+        Cookie selectedCategoryCookie = new Cookie("selectedCategoryCookie", categoryType.toString());
+        selectedCategoryCookie.setMaxAge(30 * 60);
+        return selectedCategoryCookie;
     }
 }
