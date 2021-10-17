@@ -1,7 +1,7 @@
 <web-app>
 
     <welcome-file-list>
-        <welcome-file>/inputName.xhtml</welcome-file>
+        <welcome-file>/exams.xhtml</welcome-file>
     </welcome-file-list>
 
     <context-param>

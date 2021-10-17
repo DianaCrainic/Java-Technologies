@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Exams Table</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputText value="This should be a page that contains a table with exams:"/>
+        <br/><br/>
+        <h:commandButton id="submit"
+                         value="Go to Students Page"
+                         action="students.xhtml"/>
+    </h:form>
+
+    <!--    <h:panelGrid columns="2" border="1">-->
+    <!--        <h:panelGroup>OS Verison</h:panelGroup>-->
+    <!--        <h:panelGroup>Linux</h:panelGroup>-->
+
+    <!--        <h:panelGroup>Installed packages</h:panelGroup>-->
+    <!--        <h:panelGroup>30</h:panelGroup>-->
+
+    <!--        <h:panelGroup>Free HDD Space</h:panelGroup>-->
+    <!--        <h:panelGroup>30 GB</h:panelGroup>-->
+
+    <!--        <h:panelGroup>Installed RAM</h:panelGroup>-->
+    <!--        <h:panelGroup>2 GB</h:panelGroup>-->
+    <!--    </h:panelGrid>-->
+
+    <div align="center">
+        <br/>
+        <h:outputText value="Exams List" styleClass="contentsTitle"/>
+
+        <h:dataTable value="#{backingExams.findAllExams()}" var="exam"
+                     styleClass="table" headerClass="table-header" footerClass="table-footer"
+                     rowClasses="table-odd-row,table-even-row">
+
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{exam.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{exam.name}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Starting Time</f:facet>
+                #{exam.startingTime}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Duration</f:facet>
+                #{exam.duration}
+            </h:column>
+
+        </h:dataTable>
+        <br/>
+
+    </div>
+</h:body>
+</html>
