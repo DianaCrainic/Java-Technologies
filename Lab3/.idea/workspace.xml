@@ -10,53 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea4891e0-abb5-41dc-9ed3-01ea78b0a037" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/JBoss_Weld_2_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_web_api_8_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_22_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Lab3_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Lab3_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Lab3_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Lab3_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/beans/CreateExamBackingBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/Beans/BackingExams.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/app/ExamScheduling.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/dao/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/dao/ExamController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/dao/StudentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Messages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/daos/ExamDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/daos/ExamDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/faces-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/students.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/students.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/WEB-INF/classes/Messages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/exams.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/faces-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/students.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Messages.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/exams.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/exams.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1ztyiAjbBy3FW0IdBgswLliWulj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -164,6 +142,7 @@
       <updated>1634981804100</updated>
       <workItem from="1634981805501" duration="3669000" />
       <workItem from="1634985836880" duration="690000" />
+      <workItem from="1634987282237" duration="1485000" />
     </task>
     <servers />
   </component>
@@ -180,5 +159,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

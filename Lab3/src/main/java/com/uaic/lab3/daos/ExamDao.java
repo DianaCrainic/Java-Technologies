@@ -1,5 +1,6 @@
 package com.uaic.lab3.daos;
 
+import com.uaic.lab3.dtos.ExamDto;
 import com.uaic.lab3.entities.Exam;
 
 import java.sql.*;
@@ -30,5 +31,15 @@ public class ExamDao extends Dao {
             }
         }
         return exams;
+    }
+
+    public void create(ExamDto exam) throws SQLException {
+        String command = "INSERT INTO exams(name, starting_time, duration) VALUES (?, ?, ?);";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(command)) {
+            preparedStatement.setString(1, exam.getName());
+            preparedStatement.setTimestamp(2, exam.getStartingTime());
+            preparedStatement.setInt(3, exam.getDuration());
+            preparedStatement.execute();
+        }
     }
 }
