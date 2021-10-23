@@ -9,7 +9,7 @@
         <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
-    <root id="archive" name="JavaServerFaces-1.0-SNAPSHOT.war">
+    <root id="archive" name="Lab3-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="Lab3:war exploded" />
     </root>
   </artifact>

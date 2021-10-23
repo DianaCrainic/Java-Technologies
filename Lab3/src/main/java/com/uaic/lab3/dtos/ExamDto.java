@@ -1,16 +1,18 @@
-package com.uaic.lab3.entities;
+package com.uaic.lab3.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Timestamp;
+
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Student {
-    private Integer id;
+public class ExamDto {
     private String name;
-    private String assignedExams;
+    private Timestamp startingTime;
+    private Integer duration;
 }

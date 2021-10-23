@@ -1,4 +1,4 @@
-package com.uaic.lab3.db;
+package com.uaic.lab3.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,9 +8,9 @@ public class Database {
     private static Database instance;
     private Connection connection;
 
-    private final String URL = "jdbc:postgresql://localhost:5432/exam_scheduling";
-    private final String USERNAME = "postgres";
-    private final String PASSWORD = "postgres";
+    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String USERNAME = "postgres";
+    private static final String PASSWORD = "database";
 
     private Database() {
         try {
@@ -18,7 +18,7 @@ public class Database {
             Class.forName(postgresqlDriver);
             this.connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (ClassNotFoundException | SQLException exception) {
-            System.out.println("db.Database Connection Creation Failed: " + exception.getMessage());
+            System.out.println("Database Connection Creation Failed: " + exception.getMessage());
         }
     }
 

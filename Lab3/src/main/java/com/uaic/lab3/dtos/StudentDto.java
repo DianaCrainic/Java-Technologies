@@ -1,4 +1,4 @@
-package com.uaic.lab3.entities;
+package com.uaic.lab3.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Student {
-    private Integer id;
+public class StudentDto {
     private String name;
     private String assignedExams;
 }

@@ -9,49 +9,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61cc5674-1198-4a95-82c6-a2c41058ca6e" name="Changes" comment="">
+    <list default="true" id="ea4891e0-abb5-41dc-9ed3-01ea78b0a037" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/JBoss_Weld_2_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_web_api_8_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_22_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Lab3_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Lab3_war.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/Lab3_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Lab3_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/PersonBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/Beans/BackingExams.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/app/ExamScheduling.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/dao/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/dao/ExamController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/dao/StudentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Exam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/entities/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Messages.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/faces-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/faces-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/inputName.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sayHello.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/students.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/faces-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/faces-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/inputName.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/sayHello.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/faces-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/students.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/students.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/WEB-INF/classes/Messages.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/exams.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/faces-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaServerFaces-1.0-SNAPSHOT/students.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Messages.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="jsf" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="LogFilters">
-    <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="ProjectId" id="1zdEOE6sf9T6tWdKoLPdloqAVG6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="1ztyiAjbBy3FW0IdBgswLliWulj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,40 +66,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\All\[Facultate]\[Master]\Java\Labs\Java-Technologies\Lab3\src\main\webapp" />
-      <recent name="D:\All\[Facultate]\[Master]\Java\Labs\Java-Technologies\Lab3\src\main\webapp\WEB-INF" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\All\[Facultate]\[Master]\Java\OtherProjects\Lab3\src\main\webapp" />
+      <recent name="D:\All\[Facultate]\[Master]\Java\OtherProjects\Lab3\src\main\webapp\WEB-INF" />
+      <recent name="D:\All\[Facultate]\[Master]\Java\OtherProjects\Lab3\src\main\resources" />
+      <recent name="D:\All\[Facultate]\[Master]\Java\OtherProjects\Lab3\src\main\java" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="excludedTypes">
-      <set>
-        <option value="JBossConfiguration" />
-      </set>
-    </option>
-  </component>
-  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 24.0.1.Final">
-    <configuration name="ExamScheduling" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.uaic.lab3.app.ExamScheduling" />
-      <module name="Lab3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.uaic.lab3.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="JBoss/WildFly 24.0.1.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 24.0.1.Final" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/JavaServerFaces-1.0-SNAPSHOT/" />
+      <option name="COMMON_VM_ARGUMENTS" value=" -Djboss.socket.binding.port-offset=0" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Lab3:war">
@@ -111,7 +99,7 @@
       </server-settings>
       <predefined_log_file enabled="true" id="JBoss" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60279" />
+        <option name="DEBUG_PORT" value="55186" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -165,115 +153,17 @@
         </option>
       </method>
     </configuration>
-    <configuration name="Tomcat 9.0.531" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.531" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Lab3_war_exploded/" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <artifact name="Lab3:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/Lab3_war_exploded" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="78bb30f5-7327-4f6f-bb53-b40bc7994bd4" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="61577" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="Lab3:war exploded" />
-        </option>
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 24.0.1.Final" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.531" />
-      <item itemvalue="Application.ExamScheduling" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.ExamScheduling" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="61cc5674-1198-4a95-82c6-a2c41058ca6e" name="Changes" comment="" />
-      <created>1634469532789</created>
+      <changelist id="ea4891e0-abb5-41dc-9ed3-01ea78b0a037" name="Changes" comment="" />
+      <created>1634981804100</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1634469532789</updated>
-      <workItem from="1634469534068" duration="2096000" />
-      <workItem from="1634484099262" duration="13151000" />
+      <updated>1634981804100</updated>
+      <workItem from="1634981805501" duration="3669000" />
+      <workItem from="1634985836880" duration="690000" />
     </task>
     <servers />
   </component>
@@ -290,6 +180,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

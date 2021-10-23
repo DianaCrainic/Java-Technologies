@@ -4,11 +4,8 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                                   http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <application>
-        <message-bundle>
-            Messages
-        </message-bundle>
         <resource-bundle>
-            <base-name>Messages</base-name>
+            <base-name>messages</base-name>
             <var>msg</var>
         </resource-bundle>
         <locale-config>
@@ -16,12 +13,16 @@
             <supported-locale>ro</supported-locale>
         </locale-config>
     </application>
+
     <navigation-rule>
-        <from-view-id>/exams.xhtml</from-view-id>
+        <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>hello</from-outcome>
+            <from-outcome>students</from-outcome>
             <to-view-id>/students.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>exams</from-outcome>
+            <to-view-id>/exams.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
-
 </faces-config>
