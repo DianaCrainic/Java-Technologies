@@ -10,10 +10,21 @@
 </h:head>
 
 <h:body>
-    <h1 id="home">Home Page</h1><br/>
+    <h1 id="home" style="margin-left:30px">Home Page</h1><br/>
 
-    <p:linkButton outcome="/exams" value="Exams page" style="margin-left:30px; background-color: darkcyan"/>
-    <p:linkButton outcome="/students" value="Students page" style="margin-left:30px; background-color: darkcyan"/>
+    <div style="margin-left:30px; margin-bottom: 50px;">
+        <p:linkButton outcome="/exams" style="background-color: darkcyan">
+            <i class="pi pi-list"/>
+            Exams page
+        </p:linkButton>
+    </div>
+
+    <div style="margin-left:30px; margin-bottom: 50px;">
+        <p:linkButton outcome="/students" style="background-color: darkcyan">
+            <i class="pi pi-users"/>
+            Students page
+        </p:linkButton>
+    </div>
 </h:body>
 
 </html>

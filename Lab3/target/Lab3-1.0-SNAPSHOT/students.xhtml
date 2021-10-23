@@ -10,15 +10,56 @@
 </h:head>
 
 <h:body>
+
+    <p:linkButton outcome="/index" style="background-color: darkcyan; width: fit-content;">
+        <i class="pi pi-arrow-left"/>
+    </p:linkButton>
+
+    <br/><br/>
+
     <h1>Students</h1>
-    <p:dataTable id="students" var="student" value="#{getStudentsBackingBean.students}" rowKey="#{student.id}">
-        <p:column headerText="Id">
-            <h:outputText value="#{student.id}"/>
-        </p:column>
-        <p:column headerText="Name">
-            <h:outputText value="#{student.name}"/>
-        </p:column>
-    </p:dataTable>
+
+    <div class="card" style="margin-left: 50px">
+        <h3>Add a student</h3>
+        <h:form>
+            <div class="p-field p-grid">
+                <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="Name"/>
+                <div class="p-col">
+                    <p:inputText id="name" value="#{createStudentBackingBean.name}" required="true"/>
+                </div>
+            </div>
+            <br/>
+            <div class="p-field p-grid">
+                <p:outputLabel for="exams" styleClass="p-col-fixed" style="width:100px" value="Exams"/>
+                <div class="p-col">
+                    <p:inputText id="exams" value="#{createStudentBackingBean.assignedExams}" required="true"/>
+                </div>
+            </div>
+            <br/>
+
+            <h:commandButton value="Submit" action="#{createStudentBackingBean.submit}"/>
+        </h:form>
+    </div>
+    <br/><br/>
+
+    <p:separator/><br/>
+
+    <div style="width: 900px; margin-left: 50px">
+        <h3>List of students</h3>
+
+        <p:dataTable id="students" var="student" value="#{getStudentsBackingBean.students}" rowKey="#{student.id}">
+            <p:column headerText="Id">
+                <h:outputText value="#{student.id}"/>
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{student.name}"/>
+            </p:column>
+            <p:column headerText="Assigned Exams">
+                <h:outputText value="#{student.assignedExams}"/>
+            </p:column>
+        </p:dataTable>
+
+    </div>
 </h:body>
 
 </html>
