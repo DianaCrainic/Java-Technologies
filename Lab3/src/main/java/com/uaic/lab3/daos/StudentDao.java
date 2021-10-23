@@ -9,11 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDao extends Dao {
-    private static final String SELECT_ALL_STUDENTS_QUERY = "SELECT id, name FROM students;";
-    private final ExamDao examDao;
-
     public StudentDao() {
-        examDao = new ExamDao();
         try {
             connection = getConnection();
         } catch (SQLException exception) {
@@ -23,9 +19,9 @@ public class StudentDao extends Dao {
 
     public List<Student> getAll() throws SQLException {
         List<Student> students = new ArrayList<>();
-
+        String query = "SELECT id, name FROM students;";
         try (Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(SELECT_ALL_STUDENTS_QUERY);
+            ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String name = resultSet.getString("name");

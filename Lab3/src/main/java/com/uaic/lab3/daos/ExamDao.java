@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExamDao extends Dao {
-    private static final String SELECT_EXAM_ID_BY_STUDENT_ID = "SELECT exam_id FROM students_exams WHERE student_id = ?";
-
     public ExamDao() {
         try {
             connection = getConnection();
