@@ -10,9 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea4891e0-abb5-41dc-9ed3-01ea78b0a037" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/beans/CreateExamBackingBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/daos/ExamDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/daos/ExamDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/beans/CreateExamBackingBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/beans/CreateExamBackingBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/exams.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/exams.xhtml" afterDir="false" />
     </list>
@@ -142,7 +141,8 @@
       <updated>1634981804100</updated>
       <workItem from="1634981805501" duration="3669000" />
       <workItem from="1634985836880" duration="690000" />
-      <workItem from="1634987282237" duration="1485000" />
+      <workItem from="1634987282237" duration="1858000" />
+      <workItem from="1635002789086" duration="5708000" />
     </task>
     <servers />
   </component>

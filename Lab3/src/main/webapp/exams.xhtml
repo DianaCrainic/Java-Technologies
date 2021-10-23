@@ -12,44 +12,54 @@
 <h:body>
     <h1>Exams</h1><br/>
 
-    <p:dataTable id="exams" var="exam" value="#{getExamsBackingBean.exams}" rowKey="#{exam.id}">
-        <p:column headerText="ID">
-            <h:outputText value="#{exam.id}"/>
-        </p:column>
-        <p:column headerText="Name">
-            <h:outputText value="#{exam.name}"/>
-        </p:column>
-        <p:column headerText="Starting Time">
-            <h:outputText value="#{exam.startingTime}"/>
-        </p:column>
-        <p:column headerText="Duration">
-            <h:outputText value="#{exam.duration}"/>
-        </p:column>
-    </p:dataTable><br/><br/>
-
-    <div class="card">
-        <h5>Create an exam</h5>
-        <div class="p-field p-grid">
-            <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="Name"/>
-            <div class="p-col">
-                <p:inputText id="name" value="#{createExamBackingBean.name}" required="true"/>
+    <div class="card" style="margin-left: 50px">
+        <h3>Create an exam</h3>
+        <h:form>
+            <div class="p-field p-grid">
+                <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="Name"/>
+                <div class="p-col">
+                    <p:inputText id="name" value="#{createExamBackingBean.name}" required="true"/>
+                </div>
             </div>
-        </div><br/>
-        <div class="p-field p-grid">
-            <p:outputLabel for="startingTime" styleClass="p-col-fixed" style="width:100px" value="Staring Time"/>
-            <div class="p-col">
-                <p:inputText id="startingTime" value="#{createExamBackingBean.startingTime}" required="true"/>
+            <br/>
+            <div class="p-field p-grid">
+                <p:outputLabel for="startingTime" value="Starting Time"/><br/>
+                <p:datePicker id="startingTime" value="#{createExamBackingBean.startingTime}"
+                              showTime="true" required="true"/>
             </div>
-        </div><br/>
-        <div class="p-field p-grid">
-            <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px" value="Duration"/>
-            <div class="p-col">
-                <p:inputText id="duration" value="#{createExamBackingBean.duration}" required="true"/>
+            <br/>
+            <div class="p-field p-grid">
+                <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px" value="Duration (min)"/>
+                <div class="p-col">
+                    <p:inputText id="duration" value="#{createExamBackingBean.duration}" required="true"/>
+                </div>
             </div>
-        </div><br/>
-        <p:commandButton value="Submit" action="#{createExamBackingBean.submit}"/>
+            <br/>
+            <h:commandButton value="Submit" action="#{createExamBackingBean.submit}"/>
+        </h:form>
     </div>
+    <br/><br/>
 
+    <p:separator/><br/>
+
+    <div style="width: 900px; margin-left: 50px">
+        <h3>List of exams</h3>
+
+        <p:dataTable id="exams" var="exam" value="#{getExamsBackingBean.exams}" rowKey="#{exam.id}">
+            <p:column headerText="ID">
+                <h:outputText value="#{exam.id}"/>
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{exam.name}"/>
+            </p:column>
+            <p:column headerText="Starting Time">
+                <h:outputText value="#{exam.startingTime}"/>
+            </p:column>
+            <p:column headerText="Duration">
+                <h:outputText value="#{exam.duration}"/>
+            </p:column>
+        </p:dataTable>
+    </div><br/><br/>
 
 </h:body>
 
