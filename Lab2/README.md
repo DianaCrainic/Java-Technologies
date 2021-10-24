@@ -1,11 +1,19 @@
-# [JavaServer Faces Lab3](https://profs.info.uaic.ro/~acf/tj/labs/lab_03.html)
-
-Create a Web application using JavaServer Faces technology, dedicated to exam scheduling.
-There is a set of exams that must be scheduled in a session (a number of consecutive days). There is a set of students and each student must attend a list of exams. A student can participate to at most one exam in the same day.
+# [Web Components Lab2](https://profs.info.uaic.ro/~acf/tj/labs/lab_02.html)
 
 Tasks Done:
-- A Web page for defining the **exams**. Each exam has a name, a starting time and a duration.
-- A Web page for defining the **students** that must attend the exams. Each student has a name and the list of exams.
-Used a relational database and JDBC in order to store and retrieve data. (**PostgreSQL** was used).
-Used at least one non trivial **JSF component**, for example a data table, a dialog, etc.
-**Internationalized** the user interface and offer support for at least two locales (English and Romanian languages).
+- Create a Web application containing the following components:
+  - input.jsp: a page containing a form for introducing a record, i.e. a triple containing a category, a key and a value. (The key may be a word and the value may be its definition). The categories are not static, being read from a server-side component (an object);
+  - result.jsp a page describing the response that will be delivered to the client, for example an HTML table containing the records stored on the server.
+  - an object-oriented domain model;
+  - a server-side component responsible with the business-logic of the application: writing the record to a server-side data structure, reading data from it, etc.
+  - a server-side component responsible with controlling the web-flow.
+The purpose of the application is to integrate various components, each having a specialized role.
+
+- Create the following **web filters**:
+  - A web filter that will log all requests received by input.jsp.
+  - A web filter that will decorate the response by adding a specific prelude (at the beginning) and a specific coda (at the end) to the generated HTML page.
+Important: we assume that the pages are already created and the functionalities described above cannot be implemented by modifying them directly.
+
+- Create a **web listener** that reads a default category specified as a context init parameter at the application start-up. This default value should be stored in an attribute having application scope and it will be used whenever the request does not contain a category.
+
+- Use a "hand-made" **cookie** to store the category selected by the client. When the user returns to the site (after the current session was invalidated) and presents this cookie, the category will be set automatically.
