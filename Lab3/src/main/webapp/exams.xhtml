@@ -3,10 +3,14 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view locale="#{languageBackingBean.locale}"/>
+<f:loadBundle basename="messages" var="msg"/>
 
 <h:head>
-    <title>Exams</title>
+    <title>#{msg.examsPage}</title>
 </h:head>
 
 <h:body>
@@ -15,32 +19,32 @@
     </p:linkButton>
     <br/><br/>
 
-    <h1>Exams</h1><br/>
+    <h1>#{msg.exams}</h1><br/>
 
     <div class="card" style="margin-left: 50px">
-        <h3>Create an exam</h3>
+        <h3>#{msg.createAnExam}</h3>
         <h:form>
             <div class="p-field p-grid">
-                <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="Name"/>
+                <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
                 <div class="p-col">
                     <p:inputText id="name" value="#{createExamBackingBean.name}" required="true"/>
                 </div>
             </div>
             <br/>
             <div class="p-field p-grid">
-                <p:outputLabel for="startingTime" value="Starting Time"/><br/>
+                <p:outputLabel for="startingTime" value="#{msg.startingTime}"/><br/>
                 <p:datePicker id="startingTime" value="#{createExamBackingBean.startingTime}"
                               showTime="true" required="true"/>
             </div>
             <br/>
             <div class="p-field p-grid">
-                <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px" value="Duration (min)"/>
+                <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px" value="#{msg.duration} (min)"/>
                 <div class="p-col">
                     <p:inputText id="duration" value="#{createExamBackingBean.duration}" required="true"/>
                 </div>
             </div>
             <br/>
-            <h:commandButton value="Submit" action="#{createExamBackingBean.submit}"/>
+            <h:commandButton value="#{msg.submit}" action="#{createExamBackingBean.submit}"/>
         </h:form>
     </div>
     <br/><br/>
@@ -48,19 +52,19 @@
     <p:separator/><br/>
 
     <div style="width: 900px; margin-left: 50px">
-        <h3>List of exams</h3>
+        <h3>#{msg.listOfExams}</h3>
 
         <p:dataTable id="exams" var="exam" value="#{getExamsBackingBean.exams}" rowKey="#{exam.id}">
-            <p:column headerText="ID">
+            <p:column headerText="Id">
                 <h:outputText value="#{exam.id}"/>
             </p:column>
-            <p:column headerText="Name">
+            <p:column headerText="#{msg.name}">
                 <h:outputText value="#{exam.name}"/>
             </p:column>
-            <p:column headerText="Starting Time">
+            <p:column headerText="#{msg.startingTime}">
                 <h:outputText value="#{exam.startingTime}"/>
             </p:column>
-            <p:column headerText="Duration">
+            <p:column headerText="#{msg.duration} (min)">
                 <h:outputText value="#{exam.duration}"/>
             </p:column>
         </p:dataTable>

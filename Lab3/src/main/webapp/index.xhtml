@@ -3,26 +3,39 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view locale="#{languageBackingBean.locale}"/>
+<f:loadBundle basename="messages" var="msg"/>
 
 <h:head>
-    <title>Home Page</title>
+    <title>#{msg.examScheduling}</title>
 </h:head>
 
 <h:body>
-    <h1 id="home" style="margin-left:30px">Home Page</h1><br/>
+    <h3>#{msg.languageMessage}</h3>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:commandButton action="#{languageBackingBean.setLanguage('en')}" value="#{msg['language.en']}"/>
+            <h:commandButton action="#{languageBackingBean.setLanguage('ro')}" value="#{msg['language.ro']}"/>
+        </h:panelGrid>
+    </h:form>
+    <br/><br/>
+
+    <h1 id="home" style="margin-left:30px">#{msg.home}</h1><br/>
 
     <div style="margin-left:30px; margin-bottom: 50px;">
         <p:linkButton outcome="/exams" style="background-color: darkcyan">
             <i class="pi pi-list"/>
-            Exams page
+            #{msg.examsPage}
         </p:linkButton>
     </div>
 
     <div style="margin-left:30px; margin-bottom: 50px;">
         <p:linkButton outcome="/students" style="background-color: darkcyan">
             <i class="pi pi-users"/>
-            Students page
+            #{msg.studentsPage}
         </p:linkButton>
     </div>
 </h:body>

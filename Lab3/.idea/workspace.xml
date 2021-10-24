@@ -10,13 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea4891e0-abb5-41dc-9ed3-01ea78b0a037" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/beans/CreateStudentBackingBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/internationalization/LanguageBackingBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages_ro.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/daos/StudentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uaic/lab3/daos/StudentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/exams.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/students.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/students.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/WEB-INF/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/WEB-INF/classes/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/WEB-INF/classes/messages_ro.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/WEB-INF/classes/messages_ro.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/exams.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/exams.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/students.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Lab3-1.0-SNAPSHOT/students.xhtml" afterDir="false" />
@@ -148,7 +150,8 @@
       <workItem from="1634981805501" duration="3669000" />
       <workItem from="1634985836880" duration="690000" />
       <workItem from="1634987282237" duration="1858000" />
-      <workItem from="1635002789086" duration="10068000" />
+      <workItem from="1635002789086" duration="12101000" />
+      <workItem from="1635059934885" duration="1666000" />
     </task>
     <servers />
   </component>
