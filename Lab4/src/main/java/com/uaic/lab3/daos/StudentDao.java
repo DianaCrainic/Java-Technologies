@@ -44,4 +44,30 @@ public class StudentDao extends Dao {
             preparedStatement.execute();
         }
     }
+
+    public Student getById(Integer id) throws SQLException {
+        Student student = null;
+        String query = "SELECT name, exam_ids FROM students WHERE id = ?;";
+        try (PreparedStatement preparedStatement =
+                     connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String assignedExams = resultSet.getString("exam_ids");
+                student = new Student(id, name, assignedExams);
+            }
+        }
+        return student;
+    }
+
+    public void update(Student student) throws SQLException {
+        String command = "UPDATE students SET name = ?, exam_ids = ? WHERE id = ?;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(command)) {
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setString(2, student.getAssignedExams());
+            preparedStatement.setInt(3, student.getId());
+            preparedStatement.execute();
+        }
+    }
 }

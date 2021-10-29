@@ -1,19 +1,21 @@
 package com.uaic.lab3.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
 import java.sql.Timestamp;
 
-@AllArgsConstructor
 @Getter
 @Setter
-@ToString
-public class Exam {
-    private Integer id;
+public class Exam extends AbstractEntity<Integer> {
     private String name;
     private Timestamp startingTime;
     private Integer duration;
+
+    public Exam(Integer id, String name, Timestamp startingTime, Integer duration) {
+        super(id);
+        this.name = name;
+        this.startingTime = startingTime;
+        this.duration = duration;
+    }
 }
+

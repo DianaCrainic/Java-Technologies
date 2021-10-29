@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="WEB-INF/templates/dataEdit.xhtml">
+    <ui:param name="pageTitle" value="#{msg.editExam}"/>
+
+    <ui:define name="dataEditContent">
+        <div class="p-field p-grid">
+            <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
+            <div class="p-col">
+                <p:inputText id="name" value="#{editExamBackingBean.exam.name}" required="true"/>
+            </div>
+        </div>
+        <br/>
+        <div class="p-field p-grid">
+            <p:outputLabel for="startingTime" value="#{msg.startingTime}"/><br/>
+            <p:datePicker id="startingTime" value="#{editExamBackingBean.exam.startingTime}"
+                          showTime="true" required="true"/>
+        </div>
+        <br/>
+        <div class="p-field p-grid">
+            <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px" value="#{msg.duration}"/>
+            <div class="p-col">
+                <p:inputText id="duration" value="#{editExamBackingBean.exam.duration}" required="true"/>
+            </div>
+        </div>
+        <h:commandButton value="#{msg.submit}" action="#{editExamBackingBean.submit}"/>
+
+    </ui:define>
+</ui:composition>
+</html>

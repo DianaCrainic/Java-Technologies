@@ -4,66 +4,56 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:my="http://java.sun.com/jsf/composite/components">
 
-<f:view locale="#{languageBackingBean.locale}"/>
-<f:loadBundle basename="messages" var="msg"/>
+<ui:composition template="WEB-INF/templates/dataView.xhtml">
 
-<h:head>
-    <title>#{msg.studentsPage}</title>
-</h:head>
+    <ui:param name="pageTitle" value="#{msg.students}"/>
 
-<h:body>
+    <ui:define name="dataViewContent">
 
-    <p:linkButton outcome="/index" style="background-color: darkcyan; width: fit-content;">
-        <i class="pi pi-arrow-left"/>
-    </p:linkButton>
-
-    <br/><br/>
-
-    <h1>#{msg.students}</h1>
-
-    <div class="card" style="margin-left: 50px">
-        <h3>#{msg.createAStudent}</h3>
-        <h:form>
-            <div class="p-field p-grid">
-                <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
-                <div class="p-col">
-                    <p:inputText id="name" value="#{createStudentBackingBean.name}" required="true"/>
+        <div class="card" style="margin-left: 50px">
+            <h3>#{msg.createAStudent}</h3>
+            <h:form>
+                <div class="p-field p-grid">
+                    <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
+                    <div class="p-col">
+                        <p:inputText id="name" value="#{createStudentBackingBean.name}" required="true"/>
+                    </div>
                 </div>
-            </div>
-            <br/>
-            <div class="p-field p-grid">
-                <p:outputLabel for="exams" styleClass="p-col-fixed" style="width:100px" value="#{msg.exams}"/>
-                <div class="p-col">
-                    <p:inputText id="exams" value="#{createStudentBackingBean.assignedExams}" required="true"/>
+                <br/>
+                <div class="p-field p-grid">
+                    <p:outputLabel for="exams" styleClass="p-col-fixed" style="width:100px" value="#{msg.exams}"/>
+                    <div class="p-col">
+                        <p:inputText id="exams" value="#{createStudentBackingBean.assignedExams}" required="true"/>
+                    </div>
                 </div>
-            </div>
-            <br/>
+                <br/>
 
-            <h:commandButton value="#{msg.submit}" action="#{createStudentBackingBean.submit}"/>
-        </h:form>
-    </div>
-    <br/><br/>
+                <h:commandButton value="#{msg.submit}" action="#{createStudentBackingBean.submit}">
+                    <f:ajax event="click" render="students"/>
+                </h:commandButton>
+            </h:form>
+        </div>
+        <br/><br/>
 
-    <p:separator/><br/>
-
-    <div style="width: 900px; margin-left: 50px">
-        <h3>#{msg.listOfStudents}</h3>
-
-        <p:dataTable id="students" var="student" value="#{getStudentsBackingBean.students}" rowKey="#{student.id}">
-            <p:column headerText="Id">
-                <h:outputText value="#{student.id}"/>
-            </p:column>
+        <my:dataTable id="students" dataView="#{dataStudentsViewBackingBean}">
             <p:column headerText="#{msg.name}">
-                <h:outputText value="#{student.name}"/>
+                <h:outputText value="#{entity.name}"/>
             </p:column>
             <p:column headerText="#{msg.exams}">
-                <h:outputText value="#{student.assignedExams}"/>
+                <h:outputText value="#{entity.assignedExams}"/>
             </p:column>
-        </p:dataTable>
+            <p:column headerText="#{msg.editStudent}">
+                <p:linkButton outcome="#{dataStudentsViewBackingBean.getEditStudentUrl(entity.id)}"
+                              value="#{msg.editStudent}"/>
+            </p:column>
+        </my:dataTable>
+    </ui:define>
 
-    </div>
-</h:body>
+</ui:composition>
+
 
 </html>

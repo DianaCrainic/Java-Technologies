@@ -11,14 +11,20 @@ import java.util.List;
 
 @Named
 @SessionScoped
-public class GetExamsBackingBean implements Serializable {
+public class DataExamsViewBackingBean extends DataViewBackingBean<Exam, Integer> {
     private final ExamDao examDao;
 
-    public GetExamsBackingBean() {
+    public DataExamsViewBackingBean() throws SQLException {
         examDao = new ExamDao();
+        entities = examDao.getAll();
     }
 
     public List<Exam> getExams() throws SQLException {
-        return examDao.getAll();
+        entities = examDao.getAll();
+        return entities;
+    }
+
+    public String getEditExamUrl(Integer id) {
+        return String.format("/edit-exams.xhtml?exam_id=%s", id.toString());
     }
 }

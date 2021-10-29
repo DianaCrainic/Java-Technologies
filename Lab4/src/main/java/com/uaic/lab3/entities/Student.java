@@ -1,16 +1,18 @@
 package com.uaic.lab3.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
-@AllArgsConstructor
 @Getter
 @Setter
-@ToString
-public class Student {
-    private Integer id;
+public class Student extends AbstractEntity<Integer> {
     private String name;
     private String assignedExams;
+
+    public Student(Integer id, String name, String assignedExams) {
+        super(id);
+        this.name = name;
+        this.assignedExams = assignedExams;
+    }
 }
+

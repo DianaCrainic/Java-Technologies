@@ -4,8 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<ui:composition template="WEB-INF/templates/page.xhtml">
-    <ui:param name="pageTitle" value="#{msg.home}"/>
+<ui:composition template="/WEB-INF/templates/page.xhtml">
+    <ui:define name="content">
+        <ui:insert name="dataViewContent">
+            A view of the data. May be a dataTable, or a list, etc.
+        </ui:insert>
+    </ui:define>
 </ui:composition>
 
 </html>
