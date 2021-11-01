@@ -33,24 +33,27 @@
                 <br/>
 
                 <h:commandButton value="#{msg.submit}" action="#{createStudentBackingBean.submit}">
-                    <f:ajax event="click" render="students"/>
+                    <f:ajax execute="@form" render="dataTable"/>
                 </h:commandButton>
             </h:form>
         </div>
         <br/><br/>
 
-        <my:dataTable id="students" dataView="#{dataStudentsViewBackingBean}">
-            <p:column headerText="#{msg.name}">
-                <h:outputText value="#{entity.name}"/>
-            </p:column>
-            <p:column headerText="#{msg.exams}">
-                <h:outputText value="#{entity.assignedExams}"/>
-            </p:column>
-            <p:column headerText="#{msg.editStudent}">
-                <p:linkButton outcome="#{dataStudentsViewBackingBean.getEditStudentUrl(entity.id)}"
-                              value="#{msg.editStudent}"/>
-            </p:column>
-        </my:dataTable>
+        <div style="width: 800px; margin-left: 50px">
+            <my:dataTable id="students" dataView="#{dataStudentsViewBackingBean}">
+                <p:column headerText="#{msg.name}">
+                    <h:outputText value="#{entity.name}"/>
+                </p:column>
+                <p:column headerText="#{msg.exams}">
+                    <h:outputText value="#{entity.assignedExams}"/>
+                </p:column>
+                <p:column headerText="#{msg.editStudent}">
+                    <p:linkButton outcome="#{dataStudentsViewBackingBean.getEditStudentUrl(entity.id)}"
+                                  value="#{msg.editStudent}"/>
+                </p:column>
+            </my:dataTable>
+        </div>
+
     </ui:define>
 
 </ui:composition>

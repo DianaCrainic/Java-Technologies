@@ -5,6 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:my="http://java.sun.com/jsf/composite/components">
 
 <ui:composition template="WEB-INF/templates/dataView.xhtml">
@@ -37,28 +38,36 @@
                     </div>
                 </div>
                 <br/>
-                <h:commandButton value="#{msg.submit}" action="#{createExamBackingBean.submit}"/>
+                <h:commandButton value="#{msg.submit}" action="#{createExamBackingBean.submit}">
+                    <f:ajax execute="@form" render="dataTable"/>
+                </h:commandButton>
             </h:form>
         </div>
         <br/><br/>
 
-        <my:autocompleteBox autocompleteExam="#{msg.searchExams}" autocompleteBox="#{examAutocompleteBackingBean}"/>
+        <div style="margin-left: 50px">
+            <my:autocompleteBox autocompleteExam="#{msg.searchExams}  " autocompleteBox="#{examAutocompleteBackingBean}"/>
+        </div>
         <br/>
 
-        <my:dataTable dataView="#{dataExamsViewBackingBean}">
-            <p:column headerText="#{msg.name}">
-                <h:outputText value="#{entity.name}"/>
-            </p:column>
-            <p:column headerText="#{msg.startingTime}">
-                <h:outputText value="#{entity.startingTime}"/>
-            </p:column>
-            <p:column headerText="#{msg.duration}">
-                <h:outputText value="#{entity.duration}"/>
-            </p:column>
-            <p:column headerText="#{msg.editExam}">
-                <p:linkButton outcome="#{dataExamsViewBackingBean.getEditExamUrl(entity.id)}" value="#{msg.editExam}"/>
-            </p:column>
-        </my:dataTable>
+        <div style="width: 800px; margin-left: 50px">
+
+            <my:dataTable dataView="#{dataExamsViewBackingBean}">
+                <p:column headerText="#{msg.name}">
+                    <h:outputText value="#{entity.name}"/>
+                </p:column>
+                <p:column headerText="#{msg.startingTime}">
+                    <h:outputText value="#{entity.startingTime}"/>
+                </p:column>
+                <p:column headerText="#{msg.duration}">
+                    <h:outputText value="#{entity.duration}"/>
+                </p:column>
+                <p:column headerText="#{msg.editExam}">
+                    <p:linkButton outcome="#{dataExamsViewBackingBean.getEditExamUrl(entity.id)}"
+                                  value="#{msg.editExam}"/>
+                </p:column>
+            </my:dataTable>
+        </div>
 
     </ui:define>
 </ui:composition>

@@ -4,9 +4,8 @@ import com.uaic.lab3.daos.StudentDao;
 import com.uaic.lab3.entities.Student;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -14,7 +13,7 @@ import java.sql.SQLException;
 @Getter
 @Setter
 @Named
-@SessionScoped
+@ViewScoped
 public class EditStudentBackingBean implements Serializable {
     private final StudentDao studentDao;
     private Student student;
