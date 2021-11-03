@@ -1,17 +1,20 @@
 package com.uaic.lab3.daos;
 
-import com.uaic.lab3.database.Database;
-
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public abstract class Dao {
-    protected Connection connection = null;
+    private final DataSource examSchedulerDatasource;
+
+    public Dao() throws NamingException {
+        InitialContext initialContext = new InitialContext();
+        this.examSchedulerDatasource = (DataSource) initialContext.lookup("java:/postgres");
+    }
 
     protected Connection getConnection() throws SQLException {
-        if (connection == null) {
-            connection = Database.getInstance().getConnection();
-        }
-        return connection;
+        return examSchedulerDatasource.getConnection();
     }
 }

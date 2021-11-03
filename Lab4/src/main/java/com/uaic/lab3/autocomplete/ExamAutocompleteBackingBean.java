@@ -5,6 +5,7 @@ import com.uaic.lab3.entities.Exam;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 public class ExamAutocompleteBackingBean extends AutocompleteBackingBean<Exam, Integer> {
     private final ExamDao examDao;
 
-    public ExamAutocompleteBackingBean() throws SQLException {
+    public ExamAutocompleteBackingBean() throws NamingException {
         examDao = new ExamDao();
     }
 

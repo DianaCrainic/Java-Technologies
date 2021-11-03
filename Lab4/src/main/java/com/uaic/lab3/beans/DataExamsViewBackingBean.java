@@ -5,6 +5,7 @@ import com.uaic.lab3.entities.Exam;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public class DataExamsViewBackingBean extends DataViewBackingBean<Exam, Integer> {
     private final ExamDao examDao;
 
-    public DataExamsViewBackingBean() throws SQLException {
+    public DataExamsViewBackingBean() throws SQLException, NamingException {
         examDao = new ExamDao();
         entities = examDao.getAll();
     }

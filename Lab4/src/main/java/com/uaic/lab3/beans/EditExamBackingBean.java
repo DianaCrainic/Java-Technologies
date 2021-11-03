@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import java.io.Serializable;
 import java.sql.SQLException;
 
@@ -18,7 +19,7 @@ public class EditExamBackingBean implements Serializable {
     private final ExamDao examDao;
     private Exam exam;
 
-    public EditExamBackingBean() throws SQLException {
+    public EditExamBackingBean() throws NamingException, SQLException {
         examDao = new ExamDao();
         Integer id = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext()
                 .getRequestParameterMap().get("exam_id"));

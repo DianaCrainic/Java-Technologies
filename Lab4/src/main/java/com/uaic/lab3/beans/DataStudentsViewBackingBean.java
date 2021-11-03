@@ -5,6 +5,7 @@ import com.uaic.lab3.entities.Student;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class DataStudentsViewBackingBean extends DataViewBackingBean<Student, Integer> {
     private final StudentDao studentDao;
 
-    public DataStudentsViewBackingBean() throws SQLException {
+    public DataStudentsViewBackingBean() throws SQLException, NamingException {
         studentDao = new StudentDao();
         entities = studentDao.getAll();
     }

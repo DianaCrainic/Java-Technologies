@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import java.io.Serializable;
 import java.sql.SQLException;
 
@@ -19,7 +20,7 @@ public class CreateStudentBackingBean implements Serializable {
     private String name;
     private String assignedExams;
 
-    public CreateStudentBackingBean(){
+    public CreateStudentBackingBean() throws NamingException {
         studentDao = new StudentDao();
     }
 

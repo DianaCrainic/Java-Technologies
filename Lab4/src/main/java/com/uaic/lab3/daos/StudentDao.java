@@ -4,6 +4,7 @@ import com.uaic.lab3.dtos.ExamDto;
 import com.uaic.lab3.dtos.StudentDto;
 import com.uaic.lab3.entities.Student;
 
+import javax.naming.NamingException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,18 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDao extends Dao {
-    public StudentDao() {
-        try {
-            connection = getConnection();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+    public StudentDao() throws NamingException {
+        super();
     }
 
     public List<Student> getAll() throws SQLException {
         List<Student> students = new ArrayList<>();
         String query = "SELECT id, name, exam_ids FROM students;";
-        try (Statement statement = connection.createStatement()) {
+        try (Statement statement = getConnection().createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 Integer id = resultSet.getInt("id");
@@ -38,7 +35,7 @@ public class StudentDao extends Dao {
 
     public void create(StudentDto studentDto) throws SQLException {
         String command = "INSERT INTO students(name, exam_ids) VALUES (?, ?);";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(command)) {
+        try (PreparedStatement preparedStatement = getConnection().prepareStatement(command)) {
             preparedStatement.setString(1, studentDto.getName());
             preparedStatement.setString(2, studentDto.getAssignedExams());
             preparedStatement.execute();
@@ -49,7 +46,7 @@ public class StudentDao extends Dao {
         Student student = null;
         String query = "SELECT name, exam_ids FROM students WHERE id = ?;";
         try (PreparedStatement preparedStatement =
-                     connection.prepareStatement(query)) {
+                     getConnection().prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -63,7 +60,7 @@ public class StudentDao extends Dao {
 
     public void update(Student student) throws SQLException {
         String command = "UPDATE students SET name = ?, exam_ids = ? WHERE id = ?;";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(command)) {
+        try (PreparedStatement preparedStatement = getConnection().prepareStatement(command)) {
             preparedStatement.setString(1, student.getName());
             preparedStatement.setString(2, student.getAssignedExams());
             preparedStatement.setInt(3, student.getId());

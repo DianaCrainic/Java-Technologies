@@ -5,6 +5,7 @@ import com.uaic.lab3.entities.Student;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public class GetStudentsBackingBean implements Serializable {
     private final StudentDao studentDao;
 
-    public GetStudentsBackingBean() {
+    public GetStudentsBackingBean() throws NamingException {
         studentDao = new StudentDao();
     }
 

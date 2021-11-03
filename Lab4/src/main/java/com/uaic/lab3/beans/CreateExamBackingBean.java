@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -22,7 +23,7 @@ public class CreateExamBackingBean implements Serializable {
     private Date startingTime;
     private Integer duration;
 
-    public CreateExamBackingBean() {
+    public CreateExamBackingBean() throws NamingException {
         examDao = new ExamDao();
     }
 
