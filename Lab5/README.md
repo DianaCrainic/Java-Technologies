@@ -1,0 +1,1 @@
+# [Java Persistence API (JPA) - Lab5](https://profs.info.uaic.ro/~acf/tj/labs/lab_05.html)

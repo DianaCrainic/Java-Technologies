@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <cc:interface>
+        <cc:attribute name="dataView" type="com.uaic.lab3.beans.DataViewBackingBean"/>
+    </cc:interface>
+    <cc:implementation>
+        <p:dataTable id="dataTable"
+                     value="#{cc.attrs.dataView.entities}"
+                     var="entity"
+                     rowKey="#{entity.id}"
+                     selection="#{cc.attrs.dataView.selectedEntity}"
+                     selectionMode="single">
+
+            <p:column headerText="Id">
+                <h:outputText value="#{entity.id}"/>
+            </p:column>
+
+            <cc:insertChildren/>
+        </p:dataTable>
+    </cc:implementation>
+</f:view>
+</html>
