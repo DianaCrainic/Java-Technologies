@@ -5,7 +5,6 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:my="http://java.sun.com/jsf/composite/components">
 
 <ui:composition template="WEB-INF/templates/dataView.xhtml">
@@ -13,60 +12,61 @@
     <ui:param name="pageTitle" value="#{msg.exams}"/>
 
     <ui:define name="dataViewContent">
-
-        <div class="card" style="margin-left: 50px">
-            <h3>#{msg.createAnExam}</h3>
-            <h:form>
-                <div class="p-field p-grid">
-                    <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
-                    <div class="p-col">
-                        <p:inputText id="name" value="#{createExamBackingBean.name}" required="true"/>
-                    </div>
-                </div>
-                <br/>
-                <div class="p-field p-grid">
-                    <p:outputLabel for="startingTime" value="#{msg.startingTime}"/><br/>
-                    <p:datePicker id="startingTime" value="#{createExamBackingBean.startingTime}"
-                                  showTime="true" required="true"/>
-                </div>
-                <br/>
-                <div class="p-field p-grid">
-                    <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px"
-                                   value="#{msg.duration} (min)"/>
-                    <div class="p-col">
-                        <p:inputText id="duration" value="#{createExamBackingBean.duration}" required="true"/>
-                    </div>
-                </div>
-                <br/>
-                <h:commandButton value="#{msg.submit}" action="#{createExamBackingBean.submit}"/>
-            </h:form>
-        </div>
-        <br/><br/>
-
-        <div style="margin-left: 50px">
-            <my:autocompleteBox autocompleteExam="#{msg.searchExams}  " autocompleteBox="#{examAutocompleteBackingBean}"/>
-        </div>
-        <br/>
-
-        <div style="width: 800px; margin-left: 50px">
-
-            <my:dataTable dataView="#{dataExamsViewBackingBean}">
-                <p:column headerText="#{msg.name}">
-                    <h:outputText value="#{entity.name}"/>
-                </p:column>
-                <p:column headerText="#{msg.startingTime}">
-                    <h:outputText value="#{entity.startingTime}"/>
-                </p:column>
-                <p:column headerText="#{msg.duration}">
-                    <h:outputText value="#{entity.duration}"/>
-                </p:column>
-                <p:column headerText="#{msg.editExam}">
-                    <p:linkButton outcome="#{dataExamsViewBackingBean.getEditExamUrl(entity.id)}"
-                                  value="#{msg.editExam}"/>
-                </p:column>
-            </my:dataTable>
-        </div>
-
+        <p:linkButton outcome="/written-tests" value="#{msg.writtenTests}" style="margin-left:30px;"/>
+        <p:linkButton outcome="/project-presentations" value="#{msg.projectPresentations}" style="margin-left:30px;"/>
     </ui:define>
+
+<!--    <ui:define name="dataViewContent">-->
+
+<!--        <div class="card" style="margin-left: 50px">-->
+<!--            <h3>#{msg.createAnExam}</h3>-->
+<!--            <h:form>-->
+<!--                <div class="p-field p-grid">-->
+<!--                    <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>-->
+<!--                    <div class="p-col">-->
+<!--                        <p:inputText id="name" value="#{createExamBackingBean.name}" required="true"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <br/>-->
+<!--                <div class="p-field p-grid">-->
+<!--                    <p:outputLabel for="startingTime" value="#{msg.startingTime}"/><br/>-->
+<!--                    <p:datePicker id="startingTime" value="#{createExamBackingBean.startingTime}"-->
+<!--                                  showTime="true" required="true"/>-->
+<!--                </div>-->
+<!--                <br/>-->
+<!--                <div class="p-field p-grid">-->
+<!--                    <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px"-->
+<!--                                   value="#{msg.duration} (min)"/>-->
+<!--                    <div class="p-col">-->
+<!--                        <p:inputText id="duration" value="#{createExamBackingBean.duration}" required="true"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <br/>-->
+<!--                <h:commandButton value="#{msg.submit}" action="#{createExamBackingBean.submit}"/>-->
+<!--            </h:form>-->
+<!--        </div>-->
+<!--        <br/><br/>-->
+
+<!--        <div style="margin-left: 50px">-->
+<!--            <my:autocompleteBox autocompleteExam="#{msg.searchExams}  " autocompleteBox="#{WTAutocompleteBackingBean}"/>-->
+<!--        </div>-->
+<!--        <br/>-->
+
+<!--        <div style="width: 800px; margin-left: 50px">-->
+
+<!--            <my:dataTable dataView="#{dataExamsViewBackingBean}">-->
+<!--                <p:column headerText="#{msg.name}">-->
+<!--                    <h:outputText value="#{entity.name}"/>-->
+<!--                </p:column>-->
+<!--                <p:column headerText="#{msg.startingTime}">-->
+<!--                    <h:outputText value="#{entity.startingTime}"/>-->
+<!--                </p:column>-->
+<!--                <p:column headerText="#{msg.duration}">-->
+<!--                    <h:outputText value="#{entity.duration}"/>-->
+<!--                </p:column>-->
+<!--            </my:dataTable>-->
+<!--        </div>-->
+
+<!--    </ui:define>-->
 </ui:composition>
 </html>

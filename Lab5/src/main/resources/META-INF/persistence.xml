@@ -6,5 +6,7 @@
         <non-jta-data-source>java:/postgres</non-jta-data-source>
         <class>com.uaic.lab3.entities.Exam</class>
         <class>com.uaic.lab3.entities.Student</class>
+        <class>com.uaic.lab3.entities.ProjectPresentation</class>
+        <class>com.uaic.lab3.entities.WrittenTest</class>
     </persistence-unit>
 </persistence>
