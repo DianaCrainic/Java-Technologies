@@ -13,20 +13,20 @@
         <div class="p-field p-grid">
             <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
             <div class="p-col">
-                <p:inputText id="name" value="#{editExamBackingBean.exam.name}" required="true"/>
+                <p:inputText id="name" value="#{editExamBackingBean.examDto.name}" required="true"/>
             </div>
         </div>
         <br/>
         <div class="p-field p-grid">
             <p:outputLabel for="startingTime" value="#{msg.startingTime}"/><br/>
-            <p:datePicker id="startingTime" value="#{editExamBackingBean.exam.startingTime}"
+            <p:datePicker id="startingTime" value="#{editExamBackingBean.examDto.startingTime}"
                           showTime="true" required="true"/>
         </div>
         <br/>
         <div class="p-field p-grid">
             <p:outputLabel for="duration" styleClass="p-col-fixed" style="width:100px" value="#{msg.duration}"/>
             <div class="p-col">
-                <p:inputText id="duration" value="#{editExamBackingBean.exam.duration}" required="true"/>
+                <p:inputText id="duration" value="#{editExamBackingBean.examDto.duration}" required="true"/>
             </div>
         </div>
         <h:commandButton value="#{msg.submit}" action="#{editExamBackingBean.submit}"/>

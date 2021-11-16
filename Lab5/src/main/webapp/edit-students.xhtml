@@ -16,13 +16,13 @@
             <div class="p-field p-grid">
                 <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
                 <div class="p-col">
-                    <p:inputText id="name" value="#{editStudentBackingBean.student.name}" required="true"/>
+                    <p:inputText id="name" value="#{editStudentBackingBean.studentDto.name}" required="true"/>
                 </div>
             </div>
             <br/>
             <div class="p-field p-grid">
                 <p:outputLabel for="exams" value="#{msg.exams}"/><br/>
-                <p:inputText id="exams" value="#{editStudentBackingBean.student.assignedExams}" required="true"/>
+                <p:inputText id="exams" value="#{editStudentBackingBean.studentDto.assignedExams}" required="true"/>
             </div>
             <br/>
             <h:commandButton value="#{msg.submit}" action="#{editStudentBackingBean.submit}"/>

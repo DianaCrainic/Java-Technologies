@@ -5,16 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 
-public class DataViewBackingBean<T extends AbstractEntity<ID>, ID> implements Serializable {
+public class DataViewBackingBean<T extends AbstractEntity> implements Serializable {
     @Getter
     @Setter
     protected T selectedEntity;
-    protected List<T> entities;
+    protected List entities;
 
-    public List<T> getEntities() throws SQLException {
+    public List getEntities() {
         return entities;
     }
 }

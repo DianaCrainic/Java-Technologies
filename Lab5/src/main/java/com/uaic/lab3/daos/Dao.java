@@ -1,20 +1,44 @@
 package com.uaic.lab3.daos;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
+import com.uaic.lab3.database.Database;
+import com.uaic.lab3.entities.AbstractEntity;
+import javax.persistence.EntityManager;
 
-public abstract class Dao {
-    private final DataSource examSchedulerDatasource;
+public abstract class Dao<T extends AbstractEntity> {
+    protected EntityManager entityManager;
 
-    public Dao() throws NamingException {
-        InitialContext initialContext = new InitialContext();
-        this.examSchedulerDatasource = (DataSource) initialContext.lookup("java:/postgres");
+    public Dao() {
+        entityManager = Database.getInstance().getEntityManager();
     }
 
-    protected Connection getConnection() throws SQLException {
-        return examSchedulerDatasource.getConnection();
+    public void create(T entity) {
+        beginTransaction();
+        entityManager.persist(entity);
+        entityManager.flush();
+        commitTransaction();
+    }
+
+    protected void beginTransaction() {
+        try {
+            entityManager.getTransaction().begin();
+        } catch (IllegalStateException e) {
+            rollbackTransaction();
+        }
+    }
+
+    protected void commitTransaction() {
+        try {
+            entityManager.getTransaction().commit();
+        } catch (IllegalStateException e) {
+            rollbackTransaction();
+        }
+    }
+
+    protected void rollbackTransaction() {
+        try {
+            entityManager.getTransaction().rollback();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
     }
 }

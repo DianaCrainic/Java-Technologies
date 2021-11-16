@@ -3,24 +3,23 @@ package com.uaic.lab3.beans;
 import com.uaic.lab3.daos.ExamDao;
 import com.uaic.lab3.entities.Exam;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.naming.NamingException;
-import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 
 @Named
 @SessionScoped
-public class DataExamsViewBackingBean extends DataViewBackingBean<Exam, Integer> {
-    private final ExamDao examDao;
+public class DataExamsViewBackingBean extends DataViewBackingBean<Exam> {
+    private ExamDao examDao;
 
-    public DataExamsViewBackingBean() throws SQLException, NamingException {
+    @PostConstruct
+    public void init() {
         examDao = new ExamDao();
         entities = examDao.getAll();
     }
 
-    public List<Exam> getExams() throws SQLException {
+    public List getEntities() {
         entities = examDao.getAll();
         return entities;
     }

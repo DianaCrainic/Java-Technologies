@@ -3,6 +3,7 @@ package com.uaic.lab3.beans;
 import com.uaic.lab3.daos.StudentDao;
 import com.uaic.lab3.entities.Student;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.naming.NamingException;
@@ -11,15 +12,16 @@ import java.util.List;
 
 @Named
 @ViewScoped
-public class DataStudentsViewBackingBean extends DataViewBackingBean<Student, Integer> {
-    private final StudentDao studentDao;
+public class DataStudentsViewBackingBean extends DataViewBackingBean<Student> {
+    private StudentDao studentDao;
 
-    public DataStudentsViewBackingBean() throws SQLException, NamingException {
+    @PostConstruct
+    public void init() {
         studentDao = new StudentDao();
         entities = studentDao.getAll();
     }
 
-    public List<Student> getEntities() throws SQLException {
+    public List getEntities(){
         entities = studentDao.getAll();
         return entities;
     }

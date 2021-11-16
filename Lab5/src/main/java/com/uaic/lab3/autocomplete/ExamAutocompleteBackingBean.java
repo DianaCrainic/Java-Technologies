@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Named
 @SessionScoped
-public class ExamAutocompleteBackingBean extends AutocompleteBackingBean<Exam, Integer> {
+public class ExamAutocompleteBackingBean extends AutocompleteBackingBean{
     private final ExamDao examDao;
 
     public ExamAutocompleteBackingBean() throws NamingException {
