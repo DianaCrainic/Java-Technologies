@@ -7,6 +7,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:my="http://java.sun.com/jsf/composite/components">
 
+
 <ui:composition template="WEB-INF/templates/dataView.xhtml">
 
     <ui:param name="pageTitle" value="#{msg.projectPresentations}"/>
@@ -24,6 +25,20 @@
         <br/>
 
         <h3 style="margin-left: 50px">#{msg.exams} - #{msg.projectPresentations}</h3>
+
+        <h:form style="margin-left: 50px">
+            <span class="ui-float-label">
+                <p:datePicker id="startDate" value="#{dataPPViewBackingBean.dateFilters.startDate}"
+                              showTime="true" placeholder="#{msg.startDate}"/>
+                <p:selectBooleanCheckbox value="#{dataPPViewBackingBean.dateFilters.useStartDateFilter}"/>
+            </span>
+
+            <span class="ui-float-label">
+                <p:datePicker id="endDate" value="#{dataPPViewBackingBean.dateFilters.endDate}" showTime="true"
+                              placeholder="#{msg.endDate}"/>
+                <p:selectBooleanCheckbox value="#{dataPPViewBackingBean.dateFilters.useEndDateFilter}"/>
+            </span>
+        </h:form>
 
         <div style="width: 1200px; margin-left: 50px">
             <my:examDataTable examView="#{dataPPViewBackingBean}">

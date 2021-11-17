@@ -2,6 +2,7 @@ package com.uaic.lab3.autocomplete;
 
 import com.uaic.lab3.daos.WrittenTestDao;
 import com.uaic.lab3.entities.WrittenTest;
+import com.uaic.lab3.filters.DateFilters;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -23,7 +24,7 @@ public class WTAutocompleteBackingBean extends AutocompleteBackingBean {
     public List<String> completeText(String query) {
         String queryLowerCase = query.toLowerCase();
         List<String> examList = new ArrayList<>();
-        List<WrittenTest> exams = writtenTestDao.getAll();
+        List<WrittenTest> exams = writtenTestDao.getAll(new DateFilters());
         for (WrittenTest exam : exams) {
             examList.add(exam.getName());
         }

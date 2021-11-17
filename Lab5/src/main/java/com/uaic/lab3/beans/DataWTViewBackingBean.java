@@ -13,6 +13,6 @@ public class DataWTViewBackingBean extends DataExamsViewBackingBean<WrittenTest>
     @PostConstruct
     public void init() {
         examDao = new WrittenTestDao();
-        entities = examDao.getAll();
+        entities = examDao.getAll(dateFilters);
     }
 }
