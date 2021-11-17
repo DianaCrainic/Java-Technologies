@@ -12,7 +12,20 @@
     <ui:param name="pageTitle" value="#{msg.projectPresentations}"/>
 
     <ui:define name="dataViewContent">
-        <div style="width: 900px; margin-left: 50px">
+
+        <my:createNewExamForm createExamBean="#{createPPBackingBean}">
+            <div class="p-field p-col-12 p-md-4">
+                <p:outputLabel for="partialEvaluation" value="#{msg.partialEvaluation}"/><br/>
+                <p:selectBooleanCheckbox id="partialEvaluation" value="#{createPPBackingBean.partialEvaluation}"
+                                         required="true"/>
+            </div>
+        </my:createNewExamForm>
+        <br/>
+        <br/>
+
+        <h3 style="margin-left: 50px">#{msg.exams} - #{msg.projectPresentations}</h3>
+
+        <div style="width: 1200px; margin-left: 50px">
             <my:examDataTable examView="#{dataPPViewBackingBean}">
                 <p:column headerText="#{msg.partialEvaluation}">
                     <h:outputText value="#{entity.partialEvaluation}"/>

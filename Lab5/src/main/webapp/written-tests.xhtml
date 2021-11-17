@@ -12,21 +12,23 @@
 
     <ui:define name="dataViewContent">
         <my:createNewExamForm createExamBean="#{createWTBackingBean}">
+
             <div class="p-field p-grid">
-                <p:outputLabel for="bibliography" styleClass="p-col-fixed" style="width:100px" value="#{msg.bibliography}"/>
-                <div class="p-col">
-                    <p:inputText id="bibliography" value="#{createWTBackingBean.bibliography}" required="true"/>
-                </div>
+                <p:outputLabel for="bibliography" value="#{msg.bibliography}"/><br/>
+                <p:inputTextarea cols="25" rows="5" id="bibliography" value="#{createWTBackingBean.bibliography}"
+                                 required="true"/>
             </div>
         </my:createNewExamForm>
         <br/><br/>
+
+        <h3 style="margin-left: 50px">#{msg.exams} - #{msg.writtenTests}</h3>
 
         <div style="margin-left: 50px">
             <my:autocompleteBox autocompleteExam="#{msg.findExams}" autocompleteBox="#{wTAutocompleteBackingBean}"/>
         </div>
         <br/>
 
-        <div style="width: 800px; margin-left: 50px">
+        <div style="width: 1200px; margin-left: 50px">
             <my:examDataTable examView="#{dataWTViewBackingBean}">
                 <p:column headerText="#{msg.bibliography}">
                     <h:outputText value="#{entity.bibliography}"/>

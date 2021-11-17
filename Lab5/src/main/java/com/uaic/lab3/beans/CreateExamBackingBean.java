@@ -16,10 +16,4 @@ public abstract class CreateExamBackingBean implements Serializable {
     protected Integer duration;
 
     public abstract void submit();
-
-//    private void clear(){
-//        setName(null);
-//        setStartingTime(null);
-//        setDuration(null);
-//    }
 }
