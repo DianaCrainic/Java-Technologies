@@ -22,6 +22,8 @@
 
             <cc:insertChildren/>
         </p:dataTable>
+
+        <p:poll interval="3" listener="#{cc.attrs.dataView.getEntities}" update="dataTable"/>
     </cc:implementation>
 </f:view>
 </html>
