@@ -10,7 +10,6 @@ import java.util.Date;
 @Getter
 @Setter
 public abstract class CreateExamBackingBean implements Serializable {
-    protected ExamDao examDao;
     protected String name;
     protected Date startingTime;
     protected Integer duration;

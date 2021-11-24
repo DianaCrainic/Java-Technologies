@@ -5,7 +5,7 @@ import com.uaic.lab3.entities.ProjectPresentation;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.sql.Timestamp;
@@ -15,12 +15,10 @@ import java.sql.Timestamp;
 @Named
 @SessionScoped
 public class CreatePPBackingBean extends CreateExamBackingBean {
-    private boolean partialEvaluation;
+    @EJB
+    private ProjectPresentationDao examDao;
 
-    @PostConstruct
-    public void init() {
-        examDao = new ProjectPresentationDao();
-    }
+    private boolean partialEvaluation;
 
     @Override
     public void submit() {

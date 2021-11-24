@@ -5,7 +5,7 @@ import com.uaic.lab3.entities.WrittenTest;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.sql.Timestamp;
@@ -15,12 +15,10 @@ import java.sql.Timestamp;
 @Named
 @SessionScoped
 public class CreateWTBackingBean extends CreateExamBackingBean {
-    private String bibliography;
+    @EJB
+    private WrittenTestDao examDao;
 
-    @PostConstruct
-    public void init() {
-        examDao = new WrittenTestDao();
-    }
+    private String bibliography;
 
     @Override
     public void submit() {

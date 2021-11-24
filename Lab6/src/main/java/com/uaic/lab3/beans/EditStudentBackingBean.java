@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -21,11 +22,11 @@ public class EditStudentBackingBean implements Serializable {
     @Getter
     @Setter
     private StudentDto studentDto;
+    @EJB
     private StudentDao studentDao;
 
     @PostConstruct
     public void init() {
-        studentDao = new StudentDao();
         id = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("student_id"));
         Student student = studentDao.getById(id);
         studentDto = new StudentDto(student.getName(), student.getAssignedExams());

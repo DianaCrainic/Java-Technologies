@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "exam_type",
         discriminatorType = DiscriminatorType.STRING)
-public class Exam extends AbstractEntity implements Serializable {
+public class Exam extends AbstractEntity{
     @Basic(optional = false)
     @Column(name = "name")
     private String name;

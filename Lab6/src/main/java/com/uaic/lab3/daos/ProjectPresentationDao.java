@@ -3,14 +3,15 @@ package com.uaic.lab3.daos;
 import com.uaic.lab3.entities.ProjectPresentation;
 import com.uaic.lab3.filters.DateFilters;
 
+import javax.ejb.Stateless;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class ProjectPresentationDao extends ExamDao<ProjectPresentation> {
-    @Override
+@Stateless
+public class ProjectPresentationDao extends Dao<ProjectPresentation> {
     public List<ProjectPresentation> getAll(DateFilters dateFilters) {
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<ProjectPresentation> query = builder.createQuery(ProjectPresentation.class);

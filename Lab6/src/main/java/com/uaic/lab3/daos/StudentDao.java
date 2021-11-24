@@ -3,8 +3,10 @@ package com.uaic.lab3.daos;
 import com.uaic.lab3.dtos.StudentDto;
 import com.uaic.lab3.entities.Student;
 
+import javax.ejb.Stateless;
 import java.util.List;
 
+@Stateless
 public class StudentDao extends Dao<Student> {
     public Student getById(Integer id) {
         return entityManager.find(Student.class, id);
@@ -18,19 +20,15 @@ public class StudentDao extends Dao<Student> {
         String name = studentDto.getName();
         String assignedExams = studentDto.getAssignedExams();
         Student student = new Student(name, assignedExams);
-        beginTransaction();
         entityManager.persist(student);
         entityManager.flush();
-        commitTransaction();
     }
 
     public void update(Integer id, StudentDto studentDto) {
         Student student = this.getById(id);
         student.setName(studentDto.getName());
         student.setAssignedExams(studentDto.getAssignedExams());
-        beginTransaction();
         entityManager.merge(student);
         entityManager.flush();
-        commitTransaction();
     }
 }

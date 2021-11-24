@@ -4,6 +4,7 @@ import com.uaic.lab3.daos.StudentDao;
 import com.uaic.lab3.entities.Student;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.util.List;
@@ -11,15 +12,15 @@ import java.util.List;
 @Named
 @ViewScoped
 public class DataStudentsViewBackingBean extends DataViewBackingBean<Student> {
+    @EJB
     private StudentDao studentDao;
 
     @PostConstruct
     public void init() {
-        studentDao = new StudentDao();
         entities = studentDao.getAll();
     }
 
-    public List getEntities() {
+    public List<Student> getEntities() {
         entities = studentDao.getAll();
         return entities;
     }
