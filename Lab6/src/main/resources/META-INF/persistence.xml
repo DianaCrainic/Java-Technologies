@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="SchedulerPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <non-jta-data-source>java:/postgres</non-jta-data-source>
+        <class>com.uaic.lab3.entities.Exam</class>
+        <class>com.uaic.lab3.entities.Student</class>
+        <class>com.uaic.lab3.entities.ProjectPresentation</class>
+        <class>com.uaic.lab3.entities.WrittenTest</class>
+    </persistence-unit>
+</persistence>

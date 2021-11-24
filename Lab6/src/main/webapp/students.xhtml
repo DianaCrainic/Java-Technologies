@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:my="http://java.sun.com/jsf/composite/components">
+
+<ui:composition template="WEB-INF/templates/dataView.xhtml">
+
+    <ui:param name="pageTitle" value="#{msg.students}"/>
+
+    <ui:define name="dataViewContent">
+
+        <div class="card" style="margin-left: 50px">
+            <h3>#{msg.createAStudent}</h3>
+            <h:form>
+                <div class="p-field p-grid">
+                    <p:outputLabel for="name" styleClass="p-col-fixed" style="width:100px" value="#{msg.name}"/>
+                    <div class="p-col">
+                        <p:inputText id="name" value="#{createStudentBackingBean.name}" required="true"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="p-field p-grid">
+                    <p:outputLabel for="exams" styleClass="p-col-fixed" style="width:100px" value="#{msg.exams}"/>
+                    <div class="p-col">
+                        <p:inputText id="exams" value="#{createStudentBackingBean.assignedExams}" required="true"/>
+                    </div>
+                </div>
+                <br/>
+
+                <h:commandButton value="#{msg.submit}" action="#{createStudentBackingBean.submit}"/>
+            </h:form>
+        </div>
+        <br/><br/>
+
+        <h3>#{msg.students}</h3>
+        <div style="width: 800px; margin-left: 50px">
+            <my:dataTable id="students" dataView="#{dataStudentsViewBackingBean}">
+                <p:column headerText="#{msg.name}">
+                    <h:outputText value="#{entity.name}"/>
+                </p:column>
+                <p:column headerText="#{msg.exams}">
+                    <h:outputText value="#{entity.assignedExams}"/>
+                </p:column>
+                <p:column headerText="#{msg.editStudent}">
+                    <p:linkButton outcome="#{dataStudentsViewBackingBean.getEditStudentUrl(entity.id)}"
+                                  value="#{msg.editStudent}"/>
+                </p:column>
+            </my:dataTable>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+</html>

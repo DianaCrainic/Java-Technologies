@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <cc:interface>
+        <cc:attribute name="createExamBean" type="com.uaic.lab3.beans.CreateExamBackingBean"/>
+    </cc:interface>
+    <cc:implementation>
+        <div class="card" style="margin-left: 50px">
+            <h3>#{msg.createAnExam}</h3>
+            <h:form>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel for="name" value="#{msg.name}"/><br/>
+                    <p:inputText id="name" value="#{cc.attrs.createExamBean.name}" required="true"/>
+                </div>
+                <br/>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel for="startingTime" value="#{msg.startingTime}"/><br/>
+                    <p:datePicker id="startingTime" value="#{cc.attrs.createExamBean.startingTime}" showTime="true"
+                                  required="true">
+                    </p:datePicker>
+                </div>
+                <br/>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel for="duration" value="#{msg.duration}"/><br/>
+                    <p:inputNumber id="duration" value="#{cc.attrs.createExamBean.duration}" required="true"/>
+                </div>
+                <br/>
+
+                <cc:insertChildren/>
+
+                <h:commandButton value="#{msg.submit}" action="#{cc.attrs.createExamBean.submit}"/>
+            </h:form>
+        </div>
+    </cc:implementation>
+</f:view>
+</html>

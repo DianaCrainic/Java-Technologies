@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:my="http://java.sun.com/jsf/composite/components">
+<f:view>
+    <cc:interface>
+        <cc:attribute name="examView" type="com.uaic.lab3.beans.DataExamsViewBackingBean"/>
+        <cc:implementation>
+            <my:dataTable dataView="#{cc.attrs.examView}">
+                <p:column headerText="#{msg.name}">
+                    <h:outputText value="#{entity.name}"/>
+                </p:column>
+                <p:column headerText="#{msg.startingTime}">
+                    <h:outputText value="#{entity.startingTime}"/>
+                </p:column>
+                <p:column headerText="#{msg.duration}">
+                    <h:outputText value="#{entity.duration}"/>
+                </p:column>
+                <cc:insertChildren/>
+            </my:dataTable>
+        </cc:implementation>
+    </cc:interface>
+</f:view>
+</html>

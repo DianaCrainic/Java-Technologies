@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view>
+    <cc:interface>
+        <cc:attribute name="autocompleteExam"/>
+        <cc:attribute name="autocompleteBox" type="com.uaic.lab3.autocomplete.AutocompleteBackingBean"/>
+    </cc:interface>
+    <cc:implementation>
+        <div class="p-field p-col-12 p-md-4">
+            <p:outputLabel value="#{cc.attrs.autocompleteExam}" for="@next"/>
+            <p:autoComplete id="autoComplete" value="#{cc.attrs.autocompleteBox.txt}"
+                            completeMethod="#{cc.attrs.autocompleteBox.completeText}" scrollHeight="100"/>
+        </div>
+    </cc:implementation>
+</f:view>
+</html>

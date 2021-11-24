@@ -1,0 +1,1 @@
+# [Enterprise Java Beans (EJB) - Lab6](https://profs.info.uaic.ro/~acf/tj/labs/lab_06.html)

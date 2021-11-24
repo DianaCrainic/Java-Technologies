@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:my="http://java.sun.com/jsf/composite/components"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="WEB-INF/templates/dataView.xhtml">
+
+    <ui:param name="pageTitle" value="#{msg.projectPresentations}"/>
+
+    <ui:define name="dataViewContent">
+
+        <my:createNewExamForm createExamBean="#{createPPBackingBean}">
+            <div class="p-field p-col-12 p-md-4">
+                <p:outputLabel for="partialEvaluation" value="#{msg.partialEvaluation}"/><br/>
+                <p:selectBooleanCheckbox id="partialEvaluation" value="#{createPPBackingBean.partialEvaluation}"
+                                         required="true"/>
+            </div>
+        </my:createNewExamForm>
+        <br/>
+        <br/>
+
+        <h3 style="margin-left: 50px">#{msg.exams} - #{msg.projectPresentations}</h3>
+
+        <h:form style="margin-left: 50px">
+            <span class="ui-float-label">
+                <p:datePicker id="startDate" value="#{dataPPViewBackingBean.dateFilters.startDate}"
+                              showTime="true" placeholder="#{msg.startDate}"/>
+                <p:selectBooleanCheckbox value="#{dataPPViewBackingBean.dateFilters.useStartDateFilter}"/>
+            </span>
+
+            <span class="ui-float-label">
+                <p:datePicker id="endDate" value="#{dataPPViewBackingBean.dateFilters.endDate}" showTime="true"
+                              placeholder="#{msg.endDate}"/>
+                <p:selectBooleanCheckbox value="#{dataPPViewBackingBean.dateFilters.useEndDateFilter}"/>
+            </span>
+            <br/>
+            <h:commandButton value="#{msg.searchExams}" >
+                <f:ajax execute="@form" render="dataViewContent"/>
+            </h:commandButton>
+        </h:form>
+        <br/>
+
+        <div style="width: 1200px; margin-left: 50px">
+            <my:examDataTable examView="#{dataPPViewBackingBean}">
+                <p:column headerText="#{msg.partialEvaluation}">
+                    <h:outputText value="#{entity.partialEvaluation}"/>
+                </p:column>
+            </my:examDataTable>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>
