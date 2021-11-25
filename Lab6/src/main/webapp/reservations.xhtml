@@ -5,12 +5,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:my="http://java.sun.com/jsf/composite/components">
 
 <ui:composition template="WEB-INF/templates/dataView.xhtml">
     <ui:param name="pageTitle" value="#{msg.reservation}"/>
 
     <ui:define name="dataViewContent">
+        <h3 style="margin-left: 50px">#{msg.availableResources}</h3><br/>
+
         <div style="width: 1200px; margin-left: 50px">
             <my:dataTable id="reservations" dataView="#{dataResourcesViewBackingBean}">
                 <p:column headerText="#{msg.name}">
@@ -21,6 +24,51 @@
                 </p:column>
             </my:dataTable>
         </div>
+        <br/>
+
+        <h3 style="margin-left: 50px">#{msg.assignResourcesToExam}</h3><br/>
+
+        <h:form style="margin-left: 50px">
+            <div class="p-field p-grid">
+                <p:outputLabel for="examId" value="${msg.examId}"/><br/>
+                <p:inputNumber id="examId" value="#{resourceAssignmentBackingBean.examId}" required="true"
+                               modifyValueOnWheel="false" minValue="1" decimalPlaces="0"/>
+            </div>
+            <br/>
+
+            <div class="p-field p-grid">
+                <p:outputLabel for="resourceId" value="#{msg.resourceId}"/><br/>
+                <p:inputNumber id="resourceId" value="#{resourceAssignmentBackingBean.resourceId}" required="true"
+                               modifyValueOnWheel="false" minValue="1" decimalPlaces="0"/>
+            </div>
+            <br/>
+
+            <div class="p-field p-grid">
+                <p:outputLabel for="quantity" value="${msg.quantity}"/><br/>
+                <p:inputNumber id="quantity" value="#{resourceAssignmentBackingBean.quantity}" required="true"
+                               modifyValueOnWheel="false" minValue="1" decimalPlaces="0"/>
+            </div>
+            <br/>
+
+            <h:commandButton value="#{msg.assign}" action="#{resourceAssignmentBackingBean.submit}">
+                <f:ajax execute="@form" render="dataTable"/>
+            </h:commandButton>
+        </h:form>
+
+        <div style="margin-left: 50px">
+            <ui:repeat id="assignments" var="entry"
+                       value="#{currentAssignmentsBackingBean.resourcesAssignments.entrySet().toArray()}">
+                <h3>#{msg.exam}: #{currentAssignmentsBackingBean.getExamNameById(entry.key)}</h3>
+                <ul>
+                    <ui:repeat var="entryResource"
+                               value="#{currentAssignmentsBackingBean.resourcesAssignments.get(entry.key)}">
+                        <li>#{entryResource.value} X #{currentAssignmentsBackingBean.getResourceNameById(entryResource.key)}</li>
+                    </ui:repeat>
+                </ul>
+            </ui:repeat>
+        </div>
+
     </ui:define>
+
 </ui:composition>
 </html>
