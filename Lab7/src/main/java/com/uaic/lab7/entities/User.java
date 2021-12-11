@@ -33,4 +33,8 @@ public class User extends AbstractEntity {
         this.username = username;
         this.password = password;
     }
+
+    public String getRole() {
+        return this.getClass().getAnnotation(DiscriminatorValue.class).value();
+    }
 }
