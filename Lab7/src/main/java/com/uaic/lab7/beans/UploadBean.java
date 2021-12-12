@@ -2,6 +2,7 @@ package com.uaic.lab7.beans;
 
 import com.uaic.lab7.dtos.CreateDocumentDto;
 import com.uaic.lab7.entities.Document;
+import com.uaic.lab7.interceptors.ValidTimeFrame;
 import com.uaic.lab7.producers.DocumentRegistrationNumber;
 import com.uaic.lab7.services.DocumentService;
 import lombok.Getter;
@@ -36,6 +37,7 @@ public class UploadBean implements Serializable {
     @Any
     private Event<Document> documentEvent;
 
+    @ValidTimeFrame
     public void upload() {
         if (file != null) {
             CreateDocumentDto createDocumentDto =
