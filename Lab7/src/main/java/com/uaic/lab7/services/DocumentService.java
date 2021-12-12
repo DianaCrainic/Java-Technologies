@@ -3,6 +3,7 @@ package com.uaic.lab7.services;
 import com.uaic.lab7.dtos.CreateDocumentDto;
 import com.uaic.lab7.entities.Author;
 import com.uaic.lab7.entities.Document;
+import com.uaic.lab7.interceptors.SubmissionLog;
 import com.uaic.lab7.repositories.DocumentRepository;
 
 import javax.ejb.EJB;
@@ -24,11 +25,8 @@ public class DocumentService implements Serializable {
     public List<Document> getAll() {
         return this.documentRepository.getAll();
     }
-
-    public Document getByRegistrationNumber(Integer registrationNumber) {
-        return this.documentRepository.getByRegistrationNumber(registrationNumber);
-    }
-
+    
+    @SubmissionLog
     public Document create(CreateDocumentDto createDocumentDto) {
         Document document = new Document(
                 createDocumentDto.getName(),
@@ -36,7 +34,6 @@ public class DocumentService implements Serializable {
                 createDocumentDto.getContent()
         );
         document.setAuthor((Author) this.authenticationService.getUser());
-
         this.documentRepository.create(document);
         return document;
     }

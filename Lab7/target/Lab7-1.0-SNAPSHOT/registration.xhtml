@@ -25,13 +25,14 @@
             </span><br/>
 
             <h:outputLabel for="role" value="#{msg.role}"/><br/>
-            <h:selectOneMenu id="role" value="#{registrationBean.registrationDto.role}" required="true" label="Role">
+            <h:selectOneMenu id="role" value="#{registrationBean.registrationDto.role}" required="true" label="Role" style="font-size: 18px">
                 <f:selectItem itemLabel="#{msg.admin}" itemValue="admin"/>
                 <f:selectItem itemLabel="#{msg.author}" itemValue="author"/>
             </h:selectOneMenu><br/><br/>
 
-            <h:commandButton value="#{msg.registration}" action="#{registrationBean.submit}"
-                             style="background-color: cornflowerblue;color: white"/>
+            <h:commandButton value="#{msg.register}" action="#{registrationBean.submit}"
+                             style="background-color: cornflowerblue; color: white; width: 160px; height: 50px;
+                             font-size: 18px; border-radius: 4px; border-color: dodgerblue"/>
         </h:form>
     </ui:define>
 

@@ -44,8 +44,7 @@ public class UploadBean implements Serializable {
                     new CreateDocumentDto(file.getFileName(), registrationNumber.get(), file.getContent());
             Document document = documentService.create(createDocumentDto);
             documentEvent.fire(document);
-
-            FacesMessage message = new FacesMessage("Successful", file.getFileName() + " was uploaded.");
+            FacesMessage message = new FacesMessage("Success! The ", file.getFileName() + " file was uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }

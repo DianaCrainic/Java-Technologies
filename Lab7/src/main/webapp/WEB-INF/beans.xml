@@ -6,5 +6,6 @@
        bean-discovery-mode="all">
     <interceptors>
         <class>com.uaic.lab7.interceptors.ValidTimeFrameInterceptor</class>
+        <class>com.uaic.lab7.interceptors.SubmissionLogInterceptor</class>
     </interceptors>
 </beans>

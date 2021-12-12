@@ -12,12 +12,6 @@ public class DocumentRepository extends DataRepository {
         return entityManager.createNamedQuery("Document.getAll").getResultList();
     }
 
-    public Document getByRegistrationNumber(Integer registrationNumber) {
-        return (Document) this.entityManager.createNamedQuery("Document.getByRegistrationNumber")
-                .setParameter("registrationNumber", registrationNumber)
-                .getSingleResult();
-    }
-
     @Transactional(Transactional.TxType.REQUIRED)
     public void create(Document document) {
         entityManager.persist(document);

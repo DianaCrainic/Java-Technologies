@@ -17,7 +17,9 @@
         <p:linkButton outcome="/upload" value="#{msg.uploadDocument}"
                       rendered="#{authenticationService.user != null and authenticationService.user.role.equals('author')}"
                       style="margin-right: 30px; background-color: cornflowerblue"/>
-
+        <p:linkButton outcome="/documents" value="#{msg.documents}"
+                      rendered="#{authenticationService.user != null and authenticationService.user.role.equals('admin')}"
+                      style="margin-right: 30px; background-color: cornflowerblue"/>
     </div>
 
     <h:form style="float: right">

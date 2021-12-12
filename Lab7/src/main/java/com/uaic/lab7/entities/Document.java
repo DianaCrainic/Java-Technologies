@@ -13,9 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @NamedQueries({
         @NamedQuery(name = "Document.getAll",
-                query = "SELECT document FROM Document document"),
-        @NamedQuery(name = "Document.getByRegistrationNumber",
-                query = "SELECT document FROM Document document WHERE registrationNumber = :registrationNumber")
+                query = "SELECT document FROM Document document")
 })
 public class Document extends AbstractEntity {
     @Basic(optional = false)
