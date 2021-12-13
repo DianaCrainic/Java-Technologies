@@ -8,4 +8,8 @@
         <class>com.uaic.lab7.interceptors.ValidTimeFrameInterceptor</class>
         <class>com.uaic.lab7.interceptors.SubmissionLogInterceptor</class>
     </interceptors>
+
+    <decorators>
+        <class>com.uaic.lab7.decorators.CurrentTimeUtils</class>
+    </decorators>
 </beans>

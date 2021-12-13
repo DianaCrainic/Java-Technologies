@@ -7,6 +7,9 @@
     <persistence-unit name="DocumentManagerPU" transaction-type="JTA">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/DocumentManager</jta-data-source>
-
+        <class>com.uaic.lab7.entities.Admin</class>
+        <class>com.uaic.lab7.entities.Author</class>
+        <class>com.uaic.lab7.entities.User</class>
+        <class>com.uaic.lab7.entities.Document</class>
     </persistence-unit>
 </persistence>

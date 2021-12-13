@@ -22,7 +22,11 @@
                       style="margin-right: 30px; background-color: cornflowerblue"/>
     </div>
 
-    <h:form style="float: right">
+    <h3 style="float: right">
+        #{currentTimeBean.getCurrentTime()}
+    </h3>
+
+    <h:form style="float: right; clear: right;">
         <h:commandButton action="#{authenticationService.logout}" value="#{msg.logout}"
                          rendered="#{authenticationService.user != null}"
                          style="margin-right: 10px; background-color: cornflowerblue; color: white"/>
