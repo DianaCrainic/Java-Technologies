@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="WEB-INF/templates/page.xhtml">
+
+    <ui:param name="pageTitle" value="#{msg.authentication}"/>
+
+    <ui:define name="content">
+        <p:growl id="messages" showDetail="true"/>
+        <h:form style="margin-top: 50px; margin-left: 50px">
+            <span class="ui-float-label">
+                <p:inputText id="username" value="#{authenticationBean.authenticationDto.username}"
+                             required="true"/>
+                <p:outputLabel for="username" value="${msg.username}"/>
+            </span><br/>
+
+            <span class="ui-float-label">
+                <p:password id="password" value="#{authenticationBean.authenticationDto.password}"
+                            required="true"/>
+                <p:outputLabel for="password" value="${msg.password}"/>
+            </span><br/>
+
+            <h:commandButton value="#{msg.authenticate}" action="#{authenticationBean.submit}"
+                             style="background-color: cornflowerblue; color: white; width: 160px; height: 50px;
+                             font-size: 18px; border-radius: 4px; border-color: dodgerblue"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+</html>
