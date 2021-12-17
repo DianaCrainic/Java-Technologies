@@ -9,13 +9,19 @@ import javax.persistence.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "documents")
-@AllArgsConstructor
-@NoArgsConstructor
 @NamedQueries({
         @NamedQuery(name = "Document.getAll",
-                query = "SELECT document FROM Document document")
+                query = "SELECT document FROM Document document"),
+        @NamedQuery(name = "Document.getById",
+                query = "SELECT document FROM Document document WHERE id = :id"),
+        @NamedQuery(name = "Document.getByRegistrationNumber",
+                query = "SELECT document FROM Document document WHERE registrationNumber = :registrationNumber"),
+        @NamedQuery(name = "Document.getByAuthorId",
+                query = "SELECT document FROM Document document WHERE author.id = :authorId")
 })
 public class Document extends AbstractEntity {
     @Basic(optional = false)

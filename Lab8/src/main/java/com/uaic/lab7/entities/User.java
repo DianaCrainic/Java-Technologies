@@ -1,5 +1,6 @@
 package com.uaic.lab7.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ import javax.persistence.*;
         @NamedQuery(name = "User.getByUsernameAndPassword",
                 query = "SELECT user FROM User user WHERE username = :username AND password = :password")
 })
+@JsonIgnoreProperties({"password"})
 public class User extends AbstractEntity {
     @Basic(optional = false)
     @Column(name = "username", unique = true)
@@ -34,6 +36,7 @@ public class User extends AbstractEntity {
         this.password = password;
     }
 
+    @Transient
     public String getRole() {
         return this.getClass().getAnnotation(DiscriminatorValue.class).value();
     }

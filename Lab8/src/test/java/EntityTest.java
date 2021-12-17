@@ -47,7 +47,8 @@ public class EntityTest extends TestJPA {
         byte[] documentContent = stringContent.getBytes();
         Author newAuthor = new Author("author333", "author333");
         entityManager.persist(newAuthor);
-        Document document = new Document("Document5", 112233, documentContent, newAuthor);
+        Document document = new Document("Document5", 112233, documentContent);
+        document.setAuthor(newAuthor);
         entityManager.persist(document);
         entityManager.getTransaction().commit();
     }

@@ -18,8 +18,7 @@ public class SubmissionLogInterceptor implements Serializable {
         String pathFile = "D:\\All\\[Facultate]\\[Master]\\Java\\Java-Technologies\\Lab8\\src\\main\\resources\\output\\logging.txt";
         CreateDocumentDto createDocumentDto = (CreateDocumentDto) invocationContext.getParameters()[0];
         String name = createDocumentDto.getName();
-        Integer registrationNumber = createDocumentDto.getRegistrationNumber();
-        String submission = String.format("Document: %s - %d \n", name, registrationNumber);
+        String submission = String.format("Document: %s \n", name);
         Files.write(Paths.get(pathFile), submission.getBytes(), StandardOpenOption.APPEND);
         return invocationContext.proceed();
     }

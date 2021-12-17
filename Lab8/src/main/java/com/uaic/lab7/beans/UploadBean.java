@@ -3,7 +3,7 @@ package com.uaic.lab7.beans;
 import com.uaic.lab7.dtos.CreateDocumentDto;
 import com.uaic.lab7.entities.Document;
 import com.uaic.lab7.interceptors.ValidTimeFrame;
-import com.uaic.lab7.producers.DocumentRegistrationNumber;
+import com.uaic.lab7.services.AuthenticationService;
 import com.uaic.lab7.services.DocumentService;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,6 @@ import org.primefaces.model.file.UploadedFile;
 
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.Any;
-import javax.enterprise.inject.Instance;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -26,8 +25,7 @@ public class UploadBean implements Serializable {
     private DocumentService documentService;
 
     @Inject
-    @DocumentRegistrationNumber
-    private Instance<Integer> registrationNumber;
+    private AuthenticationService authenticationService;
 
     @Getter
     @Setter
@@ -40,12 +38,13 @@ public class UploadBean implements Serializable {
     @ValidTimeFrame
     public void upload() {
         if (file != null) {
-            CreateDocumentDto createDocumentDto =
-                    new CreateDocumentDto(file.getFileName(), registrationNumber.get(), file.getContent());
-            Document document = documentService.create(createDocumentDto);
-            documentEvent.fire(document);
-            FacesMessage message = new FacesMessage("Success! The ", file.getFileName() + " file was uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
+                Integer authorId = this.authenticationService.getUser().getId();
+                CreateDocumentDto createDocumentDto =
+                        new CreateDocumentDto(file.getFileName(), file.getContent(), authorId);
+                Document document = documentService.create(createDocumentDto);
+                documentEvent.fire(document);
+                FacesMessage message = new FacesMessage("Success!", file.getFileName() + " was uploaded.");
+                FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }
 }

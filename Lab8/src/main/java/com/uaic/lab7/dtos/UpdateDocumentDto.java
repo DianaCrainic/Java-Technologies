@@ -11,13 +11,10 @@ import javax.validation.constraints.NotNull;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateDocumentDto {
+public class UpdateDocumentDto {
     @NotNull
     private String name;
 
     @NotNull
     private byte[] content;
-
-    @NotNull
-    private Integer authorId;
 }

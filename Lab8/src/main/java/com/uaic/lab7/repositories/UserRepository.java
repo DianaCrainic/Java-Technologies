@@ -4,19 +4,32 @@ import com.uaic.lab7.entities.Admin;
 import com.uaic.lab7.entities.Author;
 import com.uaic.lab7.entities.User;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
 import javax.transaction.Transactional;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
-@ApplicationScoped
+@Stateless
 public class UserRepository extends DataRepository {
-    public User getByUsernameAndPassword(String username, String password) throws NoSuchAlgorithmException {
+    public Optional<Author> getAuthorById(Integer id) {
+        return this.entityManager
+                .createNamedQuery("Author.getById", Author.class)
+                .setParameter("id", id)
+                .getResultList()
+                .stream()
+                .findFirst();
+    }
+
+    public Optional<User> getByUsernameAndPassword(String username, String password) throws NoSuchAlgorithmException {
         String hashedPassword = makeHash(password);
-        return (User) this.entityManager.createNamedQuery("User.getByUsernameAndPassword")
+        return this.entityManager
+                .createNamedQuery("User.getByUsernameAndPassword", User.class)
                 .setParameter("username", username)
                 .setParameter("password", hashedPassword)
-                .getSingleResult();
+                .getResultList()
+                .stream()
+                .findFirst();
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

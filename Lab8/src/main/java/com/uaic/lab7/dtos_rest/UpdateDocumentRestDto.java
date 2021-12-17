@@ -1,4 +1,4 @@
-package com.uaic.lab7.dtos;
+package com.uaic.lab7.dtos_rest;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,13 +11,10 @@ import javax.validation.constraints.NotNull;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateDocumentDto {
+public class UpdateDocumentRestDto {
     @NotNull
     private String name;
 
     @NotNull
-    private byte[] content;
-
-    @NotNull
-    private Integer authorId;
+    private String content;
 }

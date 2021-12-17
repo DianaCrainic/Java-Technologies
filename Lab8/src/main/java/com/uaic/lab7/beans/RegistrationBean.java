@@ -2,7 +2,7 @@ package com.uaic.lab7.beans;
 
 import com.uaic.lab7.dtos.RegistrationDto;
 import com.uaic.lab7.interceptors.ValidTimeFrame;
-import com.uaic.lab7.services.RegistrationService;
+import com.uaic.lab7.services.UserService;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,10 +20,10 @@ public class RegistrationBean implements Serializable {
     private RegistrationDto registrationDto = new RegistrationDto();
 
     @Inject
-    private RegistrationService registrationService;
+    private UserService userService;
 
     @ValidTimeFrame
     public void submit() throws NoSuchAlgorithmException {
-        this.registrationService.register(registrationDto);
+        this.userService.register(registrationDto);
     }
 }

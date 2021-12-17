@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @DiscriminatorValue("author")
+@NamedQueries({
+        @NamedQuery(name = "Author.getById",
+                query = "SELECT author FROM Author author WHERE id = :id")
+})
 public class Author extends User {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
-    private List<Document> documents = new ArrayList<>();
-
     public Author(String username, String password) {
         super(username, password);
     }

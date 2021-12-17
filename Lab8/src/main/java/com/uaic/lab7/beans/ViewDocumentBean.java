@@ -25,7 +25,7 @@ public class ViewDocumentBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        documents = documentService.getAll();
+        documents = documentService.getAll(null);
     }
 
     public void onDocumentUpload(@Observes Document document) {
