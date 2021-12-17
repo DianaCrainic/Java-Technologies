@@ -1,0 +1,97 @@
+---
+openapi: 3.0.3
+info:
+  title: Lab7-1.0-SNAPSHOT.war
+  version: "1.0"
+servers:
+- url: /Lab7-1.0-SNAPSHOT
+paths:
+  /resources/documents:
+    get:
+      summary: Get all documents
+      parameters:
+      - name: authorId
+        in: query
+        description: The id of the author to filter documents by
+        schema:
+          type: number
+        example: "1"
+      responses:
+        "404":
+          description: Author not found
+        "500":
+          description: Server error
+        "200":
+          description: Uploaded Documents
+          content:
+            application/json:
+              schema:
+                type: array
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDocumentRestDto'
+      responses:
+        "200":
+          description: OK
+  /resources/documents/{id}:
+    put:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDocumentRestDto'
+      responses:
+        "200":
+          description: OK
+    delete:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    CreateDocumentRestDto:
+      required:
+      - authorId
+      - content
+      - name
+      type: object
+      properties:
+        authorId:
+          format: int32
+          type: integer
+          nullable: false
+        content:
+          type: string
+          nullable: false
+        name:
+          type: string
+          nullable: false
+    UpdateDocumentRestDto:
+      required:
+      - content
+      - name
+      type: object
+      properties:
+        content:
+          type: string
+          nullable: false
+        name:
+          type: string
+          nullable: false
