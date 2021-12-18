@@ -1,3 +1,5 @@
+package entities;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 

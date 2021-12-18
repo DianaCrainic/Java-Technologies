@@ -1,3 +1,5 @@
+package entities;
+
 import com.uaic.lab7.entities.Admin;
 import com.uaic.lab7.entities.Author;
 import com.uaic.lab7.entities.Document;
