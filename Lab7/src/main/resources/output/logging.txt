@@ -2,3 +2,7 @@ Document: C5.pdf - 907749421
 Document: C6.pdf - 909805320 
 Document: 01.1.javaee_slide_en.pdf - 1758251141 
 Document: 01.2.servlets_slide_en.pdf - 1529680141 
+Document: 02.2.filters_slide_en.pdf - 204531246 
+Document: 10.micro_slide_en.pdf - 31257389 
+Document: 07.cdi_slide_en.pdf - 1376524960 
+Document: 08.soa_slide_en.pdf - 776845413 

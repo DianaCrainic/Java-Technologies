@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  document-manager-db:
+    image: postgres
+    container_name: document-manager-db
+    hostname: document-manager-db
+    networks:
+      default:
+        aliases:
+          - document-manager-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: database
+      POSTGRES_DB: document_manager
+    volumes:
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+    ports:
+      - "5432:5432"

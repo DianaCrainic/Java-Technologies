@@ -1,8 +1,0 @@
-#Sun Dec 26 22:48:28 EET 2021
-com.ibm.websphere.ltpa.version=1.0
-com.ibm.websphere.ltpa.3DESKey=ik4vpbH9B1geRtGVHxfDJftbcGU9AM9d3/cGjIn+mR4\=
-com.ibm.websphere.ltpa.PrivateKey=wD9RZZcIYdUo10MLKcMGUmO5VrzCfRGQ9x473TX9MDD0f7ASS/tV2qW472DlyBI1Xta2nyOKvrPXaXkAN/6g2UQSHXRArAnbzDvwrRX71te9xlx4IluoP60eu1MxYxVv9Kge4oMskXvCCIzk3j2UFxrFGYcDiz0W6U+mVjoJxsKSJhVB1PTLskw9SqZC7Y4OQf6PnimnoHatnavspH5Rw+3WeUOw5lpQGUXpUo+3Hw0KN78qQezuIx0Ku4HWCE2IRGn9ZQRzsRNZH1WE3jtlHbN4wukjIofYSPXtaggt77aL+Ss3W/b/dBF7AwuYDiC3RQIJgJK4J3nTn++SulG82ReJlbmXy+03P0tcwSPhByc\=
-com.ibm.websphere.CreationHost=localhost
-com.ibm.websphere.ltpa.Realm=defaultRealm
-com.ibm.websphere.ltpa.PublicKey=ANxFqlDTLJ8mAZaBe4DPb5JsmspbIFjeDomZVtm4PM9wJXdDqEOec7pUjtLh6ypKzaig9XydtLYs/CkqZDTKhGQtIcr813dIFlIPXPpsrlBMd4SmW0Xvk+RCHQR+/bpjE79Is6E1IOiP+TiNldPSbh1RPHTM9T7asoP3eJ8uYTZJAQAB
-com.ibm.websphere.CreationDate=Sun Dec 26 22\:48\:28 EET 2021

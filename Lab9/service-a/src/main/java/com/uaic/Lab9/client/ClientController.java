@@ -6,19 +6,17 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
-@Path("/client")
+@Path("/v1/documents")
 @ApplicationScoped
 public class ClientController {
-
     @Inject
     @RestClient
     private Service service;
 
     @GET
-    @Path("/test/{parameter}")
-    public String onClientSide(@PathParam("parameter") String parameter) {
-        return service.doSomething(parameter);
+    public Response onClientSide() {
+        return service.getDocuments();
     }
 }

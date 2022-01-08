@@ -1,3 +1,3 @@
 Document: 03.jsf_slide_en.pdf
 Document: 04.jndi_slide_en.pdf 
-Document: 05.jpa_slide_en.pdf
+Document: 05.jpa_slide_en.pdfDocument: ADocument 

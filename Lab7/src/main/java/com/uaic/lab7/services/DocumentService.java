@@ -16,6 +16,7 @@ import java.util.List;
 @Named
 @SessionScoped
 public class DocumentService implements Serializable {
+//    @Inject
     @EJB
     private DocumentRepository documentRepository;
 

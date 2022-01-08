@@ -1,18 +1,9 @@
 package com.uaic.Lab9;
 
-import org.eclipse.microprofile.auth.LoginConfig;
-
-import javax.annotation.security.DeclareRoles;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-/**
- *
- */
-@ApplicationPath("/data")
 
-@LoginConfig(authMethod = "MP-JWT", realmName = "jwt-jaspi")
-@DeclareRoles({"protected"})
-
+@ApplicationPath("/api")
 public class Lab9RestApplication extends Application {
 }
