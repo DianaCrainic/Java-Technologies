@@ -30,7 +30,7 @@
     <dataSource id="DefaultDataSource" jndiName="jdbc/postgresql">
         <jdbcDriver libraryRef="postgresql-library"/>
         <!--        <properties.postgresql serverName="document-manager-db"-->
-        <properties.postgresql serverName="localhost"
+        <properties.postgresql serverName="document-manager-db"
                                portNumber="5432"
                                databaseName="document_manager"
                                user="postgres"
