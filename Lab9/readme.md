@@ -1,15 +1,17 @@
-# MicroProfile generated Applications
+# MicroProfile [Lab8](https://profs.info.uaic.ro/~acf/tj/labs/lab_09.html) & [Lab9](https://profs.info.uaic.ro/~acf/tj/labs/lab_10.html)
 
-MicroProfile Starter has generated 2 MicroProfile applications for you.
+### Tasks Done:
+##1. **LAB 9**
+- Expose a CRUD REST resource from the previous lab as a microservice.
+  - Run the microservice using an Eclipse Microprofile server implementation - **Open Liberty**;
+  - Created an additional microservice that will invoke the first one; 
+  - Created **Docker** containers for the microservices. **Database** also deployed as a container.
 
-There are 2 projects generated so that the examples for the Rest Client and/or JWT Auth specification are more realistic in the sense that they actually call an endpoint within another service.
-
-. In the `service-a` directory, you can find an application with the major parts of the application. This can be seen as the 'client'.
-. In the `service-b` directory, you can find some endpoints which will be called by code within the client application. This can be seen as the 'backend'.
-
-Have a look in the `readme.md` file in each directory which describes how each project can be built and run.
-
-
-Once both projects are built and started, open your browser at the following URL to launch the test page and execute both projects:
-
-    http://localhost:9080/index.html
+##2. **LAB 10**
+- Implemented simple test cases to highlight the support offered by MicroProfile for writing **resilient** microservices.
+  - **Fallback + Timeout and Retry**; 
+  - **CircuitBreaker**;
+  - **Bulkhead thread-pool**;
+  - **Semaphore**.
+- Implemented and tested a **health check procedure**, in order to determine the **readiness** and the **liveness** of the service.
+- Used **MicroProfile Metrics API** in order to monitor the behaviour of the service. Analyzed the number of invocations and the response time for at least one method.
