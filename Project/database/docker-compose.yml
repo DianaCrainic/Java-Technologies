@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  books-universe-db:
+    image: postgres
+    container_name: books-universe-db
+    hostname: books-universe-db
+    networks:
+      default:
+        aliases:
+          - books-universe-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: database
+      POSTGRES_DB: books-universe-db
+    volumes:
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+    ports:
+      - "5432:5432"
