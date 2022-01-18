@@ -36,7 +36,7 @@ public class BookService implements Serializable {
         this.books = this.bookRepository.getAll();
     }
 
-    public void onDocumentUpload(@Observes Book book) {
+    public void onBookUpload(@Observes Book book) {
         this.books = this.bookRepository.getAll();
     }
 
