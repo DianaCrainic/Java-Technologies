@@ -12,5 +12,6 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorDto {
+    @NotNull
     private String name;
 }

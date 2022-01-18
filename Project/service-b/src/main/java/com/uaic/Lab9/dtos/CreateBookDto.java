@@ -23,5 +23,4 @@ public class CreateBookDto {
 
     @NotNull
     private Integer libraryId;
-//        private LibraryDto library;
 }
