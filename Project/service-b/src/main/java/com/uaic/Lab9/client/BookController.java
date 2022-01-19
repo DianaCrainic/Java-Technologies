@@ -46,7 +46,7 @@ public class BookController {
     )
     public Response getAll(
             @Parameter(
-                    description = "The id of the author to filter documents by",
+                    description = "The id of the author to filter books by",
                     schema = @Schema(type = SchemaType.NUMBER)
             )
             @QueryParam("authorId") Integer authorId

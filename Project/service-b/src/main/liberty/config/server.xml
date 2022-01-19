@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<server description="DocumentManager">
+<server description="BooksUniverse">
 
     <featureManager>
         <feature>microProfile-4.0</feature>
@@ -9,7 +9,7 @@
     </featureManager>
 
     <httpEndpoint id="defaultHttpEndpoint"
-                  httpPort="9081"
+                  httpPort="9091"
                   httpsPort="9444"/>
 
     <webApplication location="Lab9.war" contextRoot="/">
@@ -29,8 +29,8 @@
 
     <dataSource id="DefaultDataSource" jndiName="jdbc/postgresql">
         <jdbcDriver libraryRef="postgresql-library"/>
-        <!--        <properties.postgresql serverName="document-manager-db"-->
-        <properties.postgresql serverName="localhost"
+        <!--        <properties.postgresql serverName="localhost"-->
+        <properties.postgresql serverName="books-universe-db"
                                portNumber="5432"
                                databaseName="books_universe"
                                user="postgres"

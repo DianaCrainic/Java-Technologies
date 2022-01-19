@@ -12,7 +12,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: database
-      POSTGRES_DB: books-universe-db
+      POSTGRES_DB: books_universe
     volumes:
       - ./script.sql:/docker-entrypoint-initdb.d/script.sql
     ports:
