@@ -40,14 +40,7 @@ public class LibraryController {
     @Operation(
             summary = "Get all libraries"
     )
-    public Response getAll(
-//            @Parameter(
-//                    description = "The id of the author to filter documents by",
-//                    example = "1",
-//                    schema = @Schema(type = SchemaType.NUMBER)
-//            )
-//            @QueryParam("authorUsername") String authorUsername
-    ) {
+    public Response getAll() {
         try {
             List<Library> libraries = this.libraryService.getAll();
             return Response.ok().entity(libraries).build();
@@ -60,6 +53,9 @@ public class LibraryController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "Create a library"
+    )
     @Transactional
     public Response create(LibraryDto libraryDto, @Context UriInfo uriInfo) {
         try {
@@ -77,6 +73,9 @@ public class LibraryController {
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "Update a library"
+    )
     @Counted
     @Transactional
     public Response update(@PathParam("id") Integer id, LibraryDto libraryDto) {
@@ -92,6 +91,9 @@ public class LibraryController {
 
     @DELETE
     @Path("/{id}")
+    @Operation(
+            summary = "Delete a library"
+    )
     @Transactional
     public Response remove(@PathParam("id") Integer id) {
         try {

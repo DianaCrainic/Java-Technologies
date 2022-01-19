@@ -22,5 +22,5 @@ public class CreateBookDto {
     private Integer price;
 
     @NotNull
-    private Integer libraryId;
+    private Integer authorId;
 }

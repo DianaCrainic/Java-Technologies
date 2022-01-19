@@ -39,20 +39,25 @@ public class Book extends AbstractEntity {
     private Integer price;
 
     @ManyToOne
-    @JoinColumn(name = "library_id", nullable = false)
+    @JoinColumn(name = "library_id")
     @Schema(required = true, description = "The library of the book")
     private Library library;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "books_authors",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id"))
-    private List<Author> authors = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
+    @Schema(required = true, description = "The author of the book")
+    private Author author;
 
-    public Book(String title, Integer review, Integer price, Library library) {
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+//    @JoinTable(name = "books_authors",
+//            joinColumns = @JoinColumn(name = "book_id"),
+//            inverseJoinColumns = @JoinColumn(name = "author_id"))
+//    private List<Author> authors = new ArrayList<>();
+
+    public Book(String title, Integer review, Integer price, Author author) {
         this.title = title;
         this.review = review;
         this.price = price;
-        this.library = library;
+        this.author = author;
     }
 }

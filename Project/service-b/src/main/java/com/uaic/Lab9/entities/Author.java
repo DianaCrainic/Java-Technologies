@@ -29,12 +29,6 @@ public class Author extends AbstractEntity {
     @Schema(required = true, description = "The name of the author")
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "books_authors",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id"))
-    private List<Book> books = new ArrayList<>();
-
     public Author(String name) {
         this.name = name;
     }

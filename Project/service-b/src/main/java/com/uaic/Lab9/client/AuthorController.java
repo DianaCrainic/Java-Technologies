@@ -40,14 +40,7 @@ public class AuthorController {
     @Operation(
             summary = "Get all authors"
     )
-    public Response getAll(
-//            @Parameter(
-//                    description = "The id of the author to filter documents by",
-//                    example = "1",
-//                    schema = @Schema(type = SchemaType.NUMBER)
-//            )
-//            @QueryParam("authorUsername") String authorUsername
-    ) {
+    public Response getAll() {
         try {
             List<Author> authors = this.authorService.getAll();
             return Response.ok().entity(authors).build();
@@ -60,6 +53,9 @@ public class AuthorController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "Create an author"
+    )
     @Transactional
     public Response create(AuthorDto authorDto, @Context UriInfo uriInfo) {
         try {
@@ -77,6 +73,9 @@ public class AuthorController {
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "Update an author"
+    )
     @Counted
     @Transactional
     public Response update(@PathParam("id") Integer id, AuthorDto authorDto) {
@@ -92,6 +91,9 @@ public class AuthorController {
 
     @DELETE
     @Path("/{id}")
+    @Operation(
+            summary = "Delete an author"
+    )
     @Transactional
     public Response remove(@PathParam("id") Integer id) {
         try {
