@@ -36,3 +36,22 @@
   - service-a:
     - docker build -t books-universe-invoker .
     - docker run -dp 9090:9090 --link books-universe --name books-universe-invoker --net database_default books-universe-invoker
+
+## UML Diagram - Classes
+![Class-Diagram](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/diagrams/Class-Diagram.png?raw=true)
+
+
+
+## Use-Case: Book
+![Use-Case1](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/diagrams/use-cases/Use-Case_Book.png?raw=true)
+
+
+## Use-Case: Author
+![Use-Case2](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/diagrams/use-cases/Use-Case_Author.png?raw=true)
+
+
+## Use-Case: Library
+![Use-Case3](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/diagrams/use-cases/Use-Case_Library.png?raw=true)
+
+## Tests
+![Tests](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/unit_tests/unit-tests.png?raw=true)
