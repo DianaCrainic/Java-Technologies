@@ -6,5 +6,5 @@ import com.uaic.Lab9.entities.Library;
 import java.util.List;
 
 public interface Algorithm {
-    public List<Book> solve (Library library, List<Book> books);
+    List<Book> solve(Library library, List<Book> books);
 }

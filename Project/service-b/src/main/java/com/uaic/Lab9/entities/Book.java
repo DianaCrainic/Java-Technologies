@@ -7,8 +7,6 @@ import lombok.Setter;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -47,12 +45,6 @@ public class Book extends AbstractEntity {
     @JoinColumn(name = "author_id", nullable = false)
     @Schema(required = true, description = "The author of the book")
     private Author author;
-
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-//    @JoinTable(name = "books_authors",
-//            joinColumns = @JoinColumn(name = "book_id"),
-//            inverseJoinColumns = @JoinColumn(name = "author_id"))
-//    private List<Author> authors = new ArrayList<>();
 
     public Book(String title, Integer review, Integer price, Author author) {
         this.title = title;

@@ -7,7 +7,6 @@ import com.uaic.Lab9.entities.Author;
 import com.uaic.Lab9.entities.Book;
 import com.uaic.Lab9.entities.Library;
 import com.uaic.Lab9.exceptions.EntityNotFoundException;
-import com.uaic.Lab9.repositories.AuthorRepository;
 import com.uaic.Lab9.repositories.BookRepository;
 import com.uaic.Lab9.repositories.LibraryRepository;
 
@@ -18,7 +17,6 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,13 +27,7 @@ public class BookService implements Serializable {
     private BookRepository bookRepository;
 
     @Inject
-    private AuthorRepository authorRepository;
-
-    @Inject
     private LibraryRepository libraryRepository;
-
-    @Inject
-    private LibraryService libraryService;
 
     @Inject
     private AuthorService authorService;
@@ -45,7 +37,6 @@ public class BookService implements Serializable {
     @Inject
     @Any
     private Event<Book> bookEvent;
-
 
     @PostConstruct
     public void init() {
@@ -57,16 +48,17 @@ public class BookService implements Serializable {
     }
 
     public List<Book> getAll(Integer authorId) {
-        return books;
-//        if (authorId == null) {
-//            return books;
-//        }
-//        return filterBookByAuthorId(authorId);
+        if (authorId == null) {
+            return books;
+        }
+        return filterBookByAuthorId(authorId);
     }
 
     public List<Book> getProfitableBooksForLibrary(Integer libraryId) {
         Library library = libraryRepository.getById(libraryId).orElseThrow(() -> new EntityNotFoundException("Library", libraryId));
-        List<Book> availableBooks = bookRepository.getAll();
+        List<Book> availableBooks = bookRepository.getAll().stream()
+                .filter(book -> book.getLibrary() == null)
+                .collect(Collectors.toList());
 
         BestBooksForLibraryAlgorithm algorithm = new BestBooksForLibraryAlgorithm();
         return algorithm.solve(library, availableBooks);
@@ -81,7 +73,6 @@ public class BookService implements Serializable {
     }
 
     public Book create(CreateBookDto createBookDto) {
-//        Library library = libraryService.getById(createBookDto.getLibraryId());
         Author author = authorService.getById(createBookDto.getAuthorId());
 
         Book book = new Book(
@@ -94,15 +85,6 @@ public class BookService implements Serializable {
         bookEvent.fire(book);
         return book;
     }
-
-//    public void addBookToAuthor(Integer bookId, Integer authorId) {
-//        Book book = bookRepository.getById(bookId).orElseThrow(() -> new EntityNotFoundException("Book", bookId));
-//        Author author = authorRepository.getById(authorId).orElseThrow(() -> new EntityNotFoundException("Author", authorId));
-//
-//        book.getAuthors().add(author);
-//        this.bookRepository.update(book);
-//        bookEvent.fire(book);
-//    }
 
     public void addBookToLibrary(Integer bookId, Integer libraryId) {
         Book book = bookRepository.getById(bookId).orElseThrow(() -> new EntityNotFoundException("Book", bookId));
@@ -128,10 +110,9 @@ public class BookService implements Serializable {
         bookEvent.fire(book);
     }
 
-
-//    private List<Book> filterBookByAuthorId(Integer authorId) {
-//        return this.books.stream()
-//                .filter(book -> book.getAuthors()....getId().equals(authorId))
-//                .collect(Collectors.toList());
-//    }
+    private List<Book> filterBookByAuthorId(Integer authorId) {
+        return this.books.stream()
+                .filter(book -> book.getAuthor().getId().equals(authorId))
+                .collect(Collectors.toList());
+    }
 }

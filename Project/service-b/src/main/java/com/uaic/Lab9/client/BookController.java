@@ -80,24 +80,6 @@ public class BookController {
         }
     }
 
-//    @POST
-//    @Path("/{bookId}/authors/{authorId}")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Operation(
-//            summary = "Add an author to the book"
-//    )
-//    @Transactional
-//    public Response addToAuthor(@PathParam("bookId") Integer bookId, @PathParam("authorId") Integer authorId) {
-//        try {
-//            this.bookService.addBookToAuthor(bookId, authorId);
-//            return Response.noContent().build();
-//        } catch (EntityNotFoundException exception) {
-//            return Response.status(Response.Status.NOT_FOUND).entity(exception.getMessage()).build();
-//        } catch (Throwable exception) {
-//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(exception.getMessage()).build();
-//        }
-//    }
-
     @POST
     @Path("/{bookId}/authors/{libraryId}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -115,7 +97,6 @@ public class BookController {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(exception.getMessage()).build();
         }
     }
-
 
     @PUT
     @Path("/{id}")
@@ -152,6 +133,7 @@ public class BookController {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path(("/{libraryId}"))
