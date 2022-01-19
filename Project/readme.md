@@ -57,4 +57,4 @@
 ![Tests](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/unit_tests/unit-tests.png?raw=true)
 
 ## SwaggerUI Endpoints
-![Endpoints](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/diagrams/SwaggerUI-endpoints?raw=true)
+![Endpoints](https://github.com/DianaCrainic/Java-Technologies/blob/main/Project/resources/diagrams/SwaggerUI-endpoints.png?raw=true)
